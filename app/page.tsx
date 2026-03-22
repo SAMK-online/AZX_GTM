@@ -1,0 +1,397 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+
+const MODULES = [
+  {
+    number: "01",
+    href: "/intelligence",
+    accent: "#ffffff",
+    accentBg: "rgba(255,255,255,0.04)",
+    tag: "LIVE AI · STREAMING",
+    title: "Prospect Intelligence Engine",
+    subtitle: "Type a company. Get a full GTM brief in 15 seconds.",
+    description:
+      "Live web search + Claude synthesis. Signals, stakeholders, pain points, AZX fit, outreach angle, and timing — all streamed in real time.",
+    cta: "Run Intelligence Engine",
+    stat: { value: "~15s", label: "to brief" },
+    preview: (
+      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
+        <div className="flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+          <span className="text-white/60 tracking-widest">ANALYZING · SCHNEIDER ELECTRIC</span>
+        </div>
+        <div className="grid grid-cols-2 gap-2 flex-1">
+          {[
+            { s: "SIGNALS", active: true, lines: [75, 55, 90, 60] },
+            { s: "STAKEHOLDERS", active: false, lines: [70, 80, 50] },
+            { s: "PAIN POINTS", active: false, lines: [85, 60, 70] },
+            { s: "AZX FIT", active: false, lines: [65, 80] },
+            { s: "OUTREACH", active: false, lines: [90, 55, 75] },
+            { s: "TIMING", active: false, lines: [60, 70] },
+          ].map(({ s, active, lines }) => (
+            <div key={s} className={`p-2.5 rounded-lg border ${active ? "border-white/20 bg-white/5" : "border-[#222] bg-[#0d0d0d]"}`}>
+              <div className={`tracking-widest mb-2 ${active ? "text-white" : "text-[#333]"}`}>{s}</div>
+              <div className="space-y-1">
+                {lines.map((w, j) => (
+                  <div key={j} className={`h-1 rounded ${active ? "bg-white/40" : "bg-[#222]"}`} style={{ width: `${w}%` }} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-2 text-white/50">
+          <span>✓</span>
+          <span className="tracking-widest">WEB-GROUNDED · TAVILY + CLAUDE</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    number: "02",
+    href: "/architecture",
+    accent: "#cccccc",
+    accentBg: "rgba(255,255,255,0.04)",
+    tag: "INTERACTIVE · 16 NODES",
+    title: "GTM Brain Architecture",
+    subtitle: "Every layer of the AI GTM stack. Fully interactive.",
+    description:
+      "16 nodes. 7 layers. Click any component to see what it does, what tools power it, and where AZX's AI changes the economics.",
+    cta: "Explore Architecture",
+    stat: { value: "16", label: "nodes" },
+    preview: (
+      <div className="h-full p-5 font-mono text-[9px] flex flex-col gap-3">
+        {[
+          { label: "DATA INGESTION", opacity: "text-white/80", nodes: ["Signal Crawler", "CRM Sync", "Intent Feed"] },
+          { label: "AI PROCESSING", opacity: "text-white/65", nodes: ["Account Scorer", "Persona Intel", "Competitive AI"] },
+          { label: "CONTENT GEN", opacity: "text-white/50", nodes: ["Outreach AI", "Content AI"] },
+          { label: "ORCHESTRATION", opacity: "text-white/40", nodes: ["GTM Orchestrator", "Workflow Engine"] },
+          { label: "EXECUTION", opacity: "text-white/30", nodes: ["Sales Engage", "Paid Amplify", "Partner Channel"] },
+        ].map(({ label, opacity, nodes }) => (
+          <div key={label}>
+            <div className={`tracking-widest mb-1.5 ${opacity}`}>{label}</div>
+            <div className="flex gap-1.5 flex-wrap">
+              {nodes.map((n) => (
+                <div key={n} className="px-2 py-1 rounded border border-[#222] bg-[#0d0d0d] text-[#555]">
+                  {n}
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    ),
+  },
+  {
+    number: "03",
+    href: "/readiness",
+    accent: "#aaaaaa",
+    accentBg: "rgba(255,255,255,0.04)",
+    tag: "INTERACTIVE · 2 MIN",
+    title: "AI GTM Readiness Score",
+    subtitle: "Score your prospect's AI maturity instantly.",
+    description:
+      "8 questions. One score. A maturity tier and three specific unlock recommendations you can anchor your next discovery call on.",
+    cta: "Take Assessment",
+    stat: { value: "4", label: "tiers" },
+    preview: (
+      <div className="h-full p-5 font-mono flex flex-col gap-4">
+        <div>
+          <div className="text-[9px] text-white/50 tracking-widest mb-1.5">QUESTION 4 OF 8 · TRIGGER RESPONSE</div>
+          <div className="h-px bg-[#222] overflow-hidden">
+            <div className="h-full w-1/2 bg-white/60" />
+          </div>
+        </div>
+        <p className="text-slate-300 text-[11px] leading-relaxed">
+          How quickly can your GTM team respond to a trigger event?
+        </p>
+        <div className="space-y-2 flex-1">
+          {["Days to weeks", "Same day if a rep catches it", "Hours, via alert tools", "Minutes, via automation"].map((opt, i) => (
+            <div key={opt} className={`px-3 py-2 rounded border text-[10px] ${i === 2 ? "border-white/30 bg-white/5 text-slate-200" : "border-[#222] text-[#444]"}`}>
+              {String.fromCharCode(65 + i)}. {opt}
+            </div>
+          ))}
+        </div>
+        <div className="text-[9px] text-azx-muted text-center tracking-widest">RESULT → AI-NATIVE GTM TIER</div>
+      </div>
+    ),
+  },
+];
+
+export default function Home() {
+  return (
+    <>
+      <Header />
+      <main className="pt-16 overflow-x-hidden">
+
+        {/* ── HERO + SCROLL ANIMATION ──────────────────────────────── */}
+        <section className="relative overflow-hidden">
+
+          <ContainerScroll
+            titleComponent={
+              <div className="mb-8 relative z-10">
+                {/* Headline */}
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.7 }}
+                  className="font-mono font-bold leading-[0.88] mb-6"
+                  style={{ fontSize: "clamp(3rem, 9vw, 7rem)" }}>
+                  <span className="text-white">The GTM Stack</span>
+                  <br />
+                  <span className="text-white/70">of the Future.</span>
+                  <br />
+                  <span className="text-white/25">Running Now.</span>
+                </motion.h1>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed mb-3">
+                  Three working AI systems. Prospect intelligence, architecture visualization,
+                  and readiness scoring — built to show exactly what an AI-native GTM team looks like.
+                </motion.p>
+
+                {/* CTAs */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.65, duration: 0.5 }}
+                  className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link href="/intelligence"
+                    className="px-7 py-3.5 rounded-lg bg-white text-black font-mono text-sm font-bold
+                               hover:bg-white/90 transition-colors duration-200">
+                    Run Intelligence Engine →
+                  </Link>
+                  <Link href="/architecture"
+                    className="px-7 py-3.5 rounded-lg border border-white/15 text-white/60 font-mono text-sm
+                               hover:border-white/40 hover:text-white transition-colors duration-200">
+                    Explore Architecture
+                  </Link>
+                  <Link href="/readiness"
+                    className="px-7 py-3.5 rounded-lg border border-white/15 text-white/60 font-mono text-sm
+                               hover:border-white/40 hover:text-white transition-colors duration-200">
+                    Take Assessment
+                  </Link>
+                </motion.div>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8 }}
+                  className="font-mono text-[10px] text-azx-muted mt-6 tracking-widest">
+                  ↓ SCROLL TO EXPLORE
+                </motion.p>
+              </div>
+            }
+          >
+            {/* 3D card content — preview of the Intelligence Engine */}
+            <div className="w-full h-full bg-azx-dark flex flex-col">
+              {/* Fake browser chrome */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-azx-border bg-azx-card shrink-0">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-white/20" />
+                  <div className="w-3 h-3 rounded-full bg-white/20" />
+                  <div className="w-3 h-3 rounded-full bg-white/20" />
+                </div>
+                <div className="flex-1 mx-4 px-3 py-1 rounded bg-azx-dark border border-azx-border font-mono text-xs text-azx-muted">
+                  azxgtmbrain.vercel.app/intelligence
+                </div>
+              </div>
+
+              {/* App preview */}
+              <div className="flex-1 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-0">
+                {/* Left: input */}
+                <div className="p-6 border-r border-azx-border flex flex-col gap-4">
+                  <div className="font-mono text-xs text-white/40 tracking-widest">PROSPECT INTELLIGENCE ENGINE</div>
+                  <div className="flex gap-2">
+                    <div className="flex-1 px-3 py-2 rounded border border-white/20 bg-azx-card font-mono text-sm text-white">
+                      Schneider Electric
+                    </div>
+                    <div className="px-3 py-2 rounded border border-azx-border bg-azx-card font-mono text-xs text-azx-muted">
+                      Energy &amp; Utilities
+                    </div>
+                    <div className="px-4 py-2 rounded bg-white text-black font-mono text-xs font-bold">
+                      Generate
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 font-mono text-xs">
+                    <span className="text-white/50">✓</span>
+                    <span className="text-azx-muted">Live signals retrieved</span>
+                    <span className="ml-1 px-2 py-0.5 rounded bg-white/5 border border-white/15 text-white/50 text-[10px]">web-grounded</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 flex-1">
+                    {["SIGNALS", "STAKEHOLDERS", "PAIN POINTS", "AZX FIT", "OUTREACH", "TIMING"].map((s, i) => (
+                      <div key={s} className={`p-2 rounded border font-mono text-[9px] ${i === 0 ? "border-white/20 bg-white/5" : "border-azx-border"}`}>
+                        <div className={`tracking-widest mb-1 ${i === 0 ? "text-white" : "text-azx-muted"}`}>{s}</div>
+                        <div className="space-y-0.5">
+                          {[70, 50, 85].map((w, j) => (
+                            <div key={j} className={`h-1 rounded ${i === 0 ? "bg-white/40" : "bg-azx-border"}`} style={{ width: `${w}%` }} />
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: streaming output */}
+                <div className="p-6 flex flex-col gap-3 overflow-hidden">
+                  <div className="font-mono text-[10px] text-azx-muted tracking-widest">SIGNALS</div>
+                  <div className="space-y-2 flex-1 overflow-hidden">
+                    <p className="text-slate-300 text-[11px] leading-relaxed">
+                      <span className="text-white font-medium">$2.3B Data Center Deal Surge (Nov 2025):</span>{" "}
+                      Schneider announced nearly $2.3B in new deals with U.S. data center operators, with liquid cooling infrastructure at the center, creating urgent grid stability challenges...
+                    </p>
+                    <p className="text-slate-400 text-[11px] leading-relaxed">
+                      <span className="text-white font-medium">EcoStruxure Scaling Pressure:</span>{" "}
+                      Customers demand more than dashboards — they want predictive, autonomous decision-support. Generic ML layers on OT data underperform in production...
+                    </p>
+                    <p className="text-slate-400 text-[11px] leading-relaxed opacity-60">
+                      <span className="text-white font-medium">Climate Week NYC 2025:</span>{" "}
+                      Schneider placed &quot;energy resilience&quot; at the center of their narrative, signaling ESG and grid reliability are a unified board-level priority...
+                    </p>
+                  </div>
+                  <div className="font-mono text-[10px] text-azx-muted flex items-center gap-1.5">
+                    <span className="w-1 h-1 rounded-full bg-white/50 animate-pulse" />
+                    streaming...
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ContainerScroll>
+        </section>
+
+        {/* ── MODULE CARDS ─────────────────────────────────────────── */}
+        <section className="px-6 py-24 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="font-mono text-xs text-azx-muted tracking-[0.3em] uppercase mb-4">
+                Three Systems. One Stack.
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Not a portfolio.{" "}
+                <span className="text-white/60">A working infrastructure.</span>
+              </h2>
+            </motion.div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {MODULES.map((mod, i) => (
+              <motion.div
+                key={mod.href}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+              >
+                <Link href={mod.href} className="group block h-full">
+                  <div className="h-full rounded-xl border border-azx-border bg-azx-card p-6
+                                  transition-all duration-300 hover:border-opacity-60
+                                  group-hover:-translate-y-1"
+                    style={{ transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s" }}
+                    onMouseEnter={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = `0 20px 60px ${mod.accent}20`;
+                      (e.currentTarget as HTMLDivElement).style.borderColor = `${mod.accent}40`;
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = "";
+                      (e.currentTarget as HTMLDivElement).style.borderColor = "";
+                    }}>
+
+                    {/* Tag + number */}
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-mono text-[10px] tracking-widest px-2 py-1 rounded"
+                        style={{ color: mod.accent, backgroundColor: mod.accentBg }}>
+                        {mod.tag}
+                      </span>
+                      <span className="font-mono text-xs text-azx-border">{mod.number}</span>
+                    </div>
+
+                    {/* Preview */}
+                    <div className="h-56 rounded-lg border border-azx-border overflow-hidden mb-5 bg-azx-dark">
+                      {mod.preview}
+                    </div>
+
+                    {/* Content */}
+                    <h3 className="text-lg font-bold text-white mb-1.5 transition-colors duration-200 group-hover:text-white/80"
+                      style={{ color: undefined }}>
+                      {mod.title}
+                    </h3>
+                    <p className="font-mono text-xs text-azx-muted mb-3">{mod.subtitle}</p>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-5">{mod.description}</p>
+
+                    {/* CTA row */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1.5 font-mono text-sm font-bold transition-colors duration-200"
+                        style={{ color: mod.accent }}>
+                        {mod.cta}
+                        <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-mono text-lg font-bold" style={{ color: mod.accent }}>{mod.stat.value}</div>
+                        <div className="font-mono text-[9px] text-azx-muted uppercase tracking-widest">{mod.stat.label}</div>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* ── WHY THIS EXISTS ───────────────────────────────────────── */}
+        <section className="px-6 pb-24 max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-xl border border-azx-border bg-azx-card p-8 md:p-12 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-5 pointer-events-none"
+              style={{ background: "radial-gradient(circle, #ffffff, transparent)", transform: "translate(30%, -30%)" }} />
+
+            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+              <div className="max-w-2xl">
+                <div className="font-mono text-xs text-white/40 tracking-widest uppercase mb-4">Why This Exists</div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  I built the demo instead of writing about it.
+                </h3>
+                <p className="text-slate-400 leading-relaxed mb-4">
+                  Every system here maps directly to what I&apos;d build at AZX on day one:
+                  a Tavily → Claude signal pipeline for prospect research, an AI orchestration
+                  layer for the GTM stack, and interactive content tools for demand gen.
+                </p>
+                <div className="font-mono text-xs text-azx-muted">
+                  Next.js 14 · Claude claude-sonnet-4-6 (Edge streaming) · Tavily · Vercel · Zero backend
+                </div>
+              </div>
+              <div className="shrink-0 flex flex-col gap-3">
+                <Link href="/intelligence"
+                  className="px-6 py-3 rounded-lg bg-white text-black font-mono text-sm font-bold
+                             hover:bg-white/90 transition-colors text-center whitespace-nowrap">
+                  Start with Intelligence →
+                </Link>
+                <a href="https://github.com/SAMK-online" target="_blank" rel="noopener noreferrer"
+                  className="px-6 py-3 rounded-lg border border-azx-border text-azx-muted font-mono text-sm
+                             hover:text-white transition-colors text-center">
+                  View Source →
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}

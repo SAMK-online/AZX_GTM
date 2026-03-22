@@ -1,0 +1,92 @@
+// ── Prospect Intelligence Engine ──────────────────────────────────────────
+
+export type SectionKey =
+  | "SIGNALS"
+  | "KEY_STAKEHOLDERS"
+  | "PAIN_POINTS"
+  | "AZX_FIT"
+  | "OUTREACH_ANGLE"
+  | "TIMING_SIGNALS"
+  | "AZX_AI_OPPORTUNITIES"
+  | "PROSPECTIVE_CONTACTS";
+
+export type Industry =
+  | "Energy & Utilities"
+  | "Industrial"
+  | "Finance"
+  | "Healthcare"
+  | "General";
+
+export interface BriefSection {
+  key: SectionKey;
+  content: string;
+  isActive: boolean;
+  isComplete: boolean;
+}
+
+export type LoadingPhase = "idle" | "searching" | "synthesizing";
+
+// ── GTM Architecture Diagram ──────────────────────────────────────────────
+
+export interface GTMNode {
+  id: string;
+  label: string;
+  layer: number;
+  x: number;
+  y: number;
+  purpose: string;
+  inputs: string[];
+  outputs: string[];
+  tools: string[];
+  azxRole: string;
+  color: string;
+}
+
+export interface GTMEdge {
+  id: string;
+  from: string;
+  to: string;
+  animated: boolean;
+}
+
+// ── AI Readiness Quiz ────────────────────────────────────────────────────
+
+export interface QuizOption {
+  label: string;
+  score: number;
+}
+
+export interface QuizQuestion {
+  id: number;
+  category: string;
+  text: string;
+  options: QuizOption[];
+}
+
+export type QuizPhase = "idle" | "question" | "calculating" | "result";
+
+export interface TierData {
+  tier: number;
+  label: string;
+  color: string;
+  description: string;
+  recommendations: string[];
+}
+
+// ── Outreach Builder ─────────────────────────────────────────────────────────
+
+export interface OutreachContact {
+  id: string;
+  name: string;
+  title: string;
+  company: string;
+  description: string; // full line from PROSPECTIVE_CONTACTS
+  addedAt: string;
+  briefContext: {
+    signals: string;
+    painPoints: string;
+    azxFit: string;
+  };
+}
+
+export type OutreachMessageType = "email" | "linkedin";
