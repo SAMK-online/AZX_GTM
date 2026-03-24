@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { GlobalBackground } from "@/components/ui/GlobalBackground";
+import { BottomNavBar } from "@/components/ui/bottom-nav-bar";
 
 export const metadata: Metadata = {
   title: "AZX GTM Brain — AI-Powered Go-to-Market Intelligence",
@@ -32,7 +33,9 @@ export default function RootLayout({
       <body className="bg-azx-dark antialiased font-sans">
         <GlobalBackground />
         {/* Page content sits above the background */}
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10 pt-20">{children}</div>
+        {/* Bottom nav — rendered outside page content so it floats above everything */}
+        <BottomNavBar />
       </body>
     </html>
   );

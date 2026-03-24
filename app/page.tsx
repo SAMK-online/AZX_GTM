@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
@@ -120,24 +119,152 @@ const MODULES = [
       </div>
     ),
   },
+  {
+    number: "07",
+    href: "/transcript",
+    accent: "#ffffff",
+    accentBg: "rgba(255,255,255,0.04)",
+    tag: "AI · CLAUDE EXTRACTION",
+    title: "Meeting Intelligence",
+    subtitle: "Transcript in. Weekly plans out.",
+    description:
+      "Paste any meeting transcript — Claude extracts a prioritized weekly action plan for every participant with due dates, context, and a one-click send button.",
+    cta: "Open Meeting Intel",
+    stat: { value: "5", label: "participants" },
+    preview: (
+      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
+        <div className="flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+          <span className="text-white/60 tracking-widest">EXTRACTING · Q2 STRATEGY MEETING</span>
+        </div>
+        <div className="grid grid-cols-2 gap-2 flex-1">
+          {[
+            { name: "SC", role: "VP Sales",   tasks: ["Draft LevelTen proposal", "Review Jordan's brief"] },
+            { name: "MR", role: "Partnerships", tasks: ["CTO discovery call", "Vendor network scan"] },
+            { name: "PP", role: "Marketing",  tasks: ["4-week content calendar", "Update one-pager"] },
+            { name: "JK", role: "BDR",        tasks: ["Finish CBRE touches", "Build PSE sequence"] },
+          ].map(({ name, role, tasks }) => (
+            <div key={name} className="p-2 rounded border border-[#222] bg-[#0d0d0d]">
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center">
+                  <span className="text-[8px] text-white font-bold">{name}</span>
+                </div>
+                <span className="text-[#555] tracking-widest text-[8px]">{role.toUpperCase()}</span>
+              </div>
+              {tasks.map((t) => (
+                <div key={t} className="flex items-start gap-1 mb-0.5">
+                  <span className="text-white/20 mt-0.5">·</span>
+                  <span className="text-[#444] text-[9px] leading-tight">{t}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-2 text-white/30">
+          <span>→</span>
+          <span className="tracking-widest">SEND PLANS TO EACH PERSON</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    number: "06",
+    href: "/performance",
+    accent: "#ffffff",
+    accentBg: "rgba(255,255,255,0.04)",
+    tag: "LIVE · YAHOO FINANCE",
+    title: "Client Performance",
+    subtitle: "Public market data for AZX client sectors.",
+    description:
+      "Real-time stock charts for CBRE and sector benchmarks across Energy, Logistics, and Utilities. Interactive 30-day price history with 52-week range tracking.",
+    cta: "View Performance",
+    stat: { value: "4", label: "tickers" },
+    preview: (
+      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
+        <div className="flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+          <span className="text-white/60 tracking-widest">MARKET · 4 SECTORS</span>
+        </div>
+        <div className="space-y-2 flex-1">
+          {[
+            { symbol: "CBRE", change: "+1.39%", bar: 72, client: true },
+            { symbol: "NEE",  change: "-0.62%", bar: 45, client: false },
+            { symbol: "GXO",  change: "+1.60%", bar: 58, client: false },
+            { symbol: "AWK",  change: "+0.73%", bar: 65, client: false },
+          ].map(({ symbol, change, bar, client }) => (
+            <div key={symbol} className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5 w-16 shrink-0">
+                <span className="text-white font-bold">{symbol}</span>
+                {client && <span className="text-[8px] bg-white text-black px-1 rounded font-bold">C</span>}
+              </div>
+              <div className="flex-1 h-1 rounded-full bg-[#1a1a1a] overflow-hidden">
+                <div className="h-full bg-white/50 rounded-full" style={{ width: `${bar}%` }} />
+              </div>
+              <span className={`text-[9px] w-12 text-right ${change.startsWith("+") ? "text-white" : "text-white/30"}`}>{change}</span>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-2 text-white/30">
+          <span>↑</span>
+          <span className="tracking-widest">INTERACTIVE 30D CHART</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    number: "05",
+    href: "/monitoring",
+    accent: "#ffffff",
+    accentBg: "rgba(255,255,255,0.04)",
+    tag: "LIVE · TAVILY + CLAUDE",
+    title: "Signal Monitor",
+    subtitle: "Live news monitoring for every account you track.",
+    description:
+      "Auto-synced from your Intelligence Engine sessions. Paste any newsletter or article — Claude extracts companies signaling buying intent, market trends, and specific AZX actions.",
+    cta: "Open Signal Monitor",
+    stat: { value: "Live", label: "signals" },
+    preview: (
+      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
+        <div className="flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+          <span className="text-white/60 tracking-widest">MONITORING · 4 ACCOUNTS</span>
+        </div>
+        <div className="space-y-2 flex-1">
+          {[
+            { company: "Schneider Electric", signal: "[HIGH] $2.3B data center expansion", fresh: true },
+            { company: "GE Vernova", signal: "[HIGH] Grid modernization RFP issued", fresh: true },
+            { company: "Siemens Energy", signal: "[MED] New CDO appointment", fresh: false },
+          ].map(({ company, signal, fresh }) => (
+            <div key={company} className={`p-2.5 rounded-lg border ${fresh ? "border-white/15 bg-white/[0.03]" : "border-[#222] bg-[#0d0d0d]"}`}>
+              <div className={`tracking-widest mb-1 text-[9px] ${fresh ? "text-white/50" : "text-[#333]"}`}>{company}</div>
+              <div className={`text-[10px] ${fresh ? "text-slate-300" : "text-[#444]"}`}>{signal}</div>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-2 text-white/40">
+          <span>≡</span>
+          <span className="tracking-widest">NEWSLETTER INTEL TAB AVAILABLE</span>
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main className="pt-16 overflow-x-hidden">
+      <main className="overflow-x-hidden">
 
         {/* ── HERO + SCROLL ANIMATION ──────────────────────────────── */}
-        <section className="relative overflow-hidden">
+        <section className="relative">
 
           <ContainerScroll
             titleComponent={
               <div className="mb-8 relative z-10">
                 {/* Headline */}
                 <motion.h1
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 30 }}
+                  animate={{ y: 0 }}
                   transition={{ delay: 0.2, duration: 0.7 }}
                   className="font-mono font-bold leading-[0.88] mb-6"
                   style={{ fontSize: "clamp(3rem, 9vw, 7rem)" }}>
@@ -149,8 +276,8 @@ export default function Home() {
                 </motion.h1>
 
                 <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 20 }}
+                  animate={{ y: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
                   className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed mb-3">
                   Three working AI systems. Prospect intelligence, architecture visualization,
@@ -159,8 +286,8 @@ export default function Home() {
 
                 {/* CTAs */}
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ y: 10 }}
+                  animate={{ y: 0 }}
                   transition={{ delay: 0.65, duration: 0.5 }}
                   className="flex flex-col sm:flex-row gap-3 justify-center">
                   <Link href="/intelligence"
@@ -181,7 +308,7 @@ export default function Home() {
                 </motion.div>
 
                 <motion.p
-                  initial={{ opacity: 0 }}
+                  initial={{ opacity: 0.3 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8 }}
                   className="font-mono text-[10px] text-azx-muted mt-6 tracking-widest">
@@ -275,9 +402,6 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="font-mono text-xs text-azx-muted tracking-[0.3em] uppercase mb-4">
-                Three Systems. One Stack.
-              </div>
               <h2 className="text-3xl md:text-4xl font-bold text-white">
                 Not a portfolio.{" "}
                 <span className="text-white/60">A working infrastructure.</span>
@@ -285,7 +409,7 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {MODULES.map((mod, i) => (
               <motion.div
                 key={mod.href}

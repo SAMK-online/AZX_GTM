@@ -90,3 +90,26 @@ export interface OutreachContact {
 }
 
 export type OutreachMessageType = "email" | "linkedin";
+
+// ── Signal Monitor ────────────────────────────────────────────────────────
+
+export interface SignalSource {
+  title: string;
+  url: string;
+}
+
+export interface SignalCacheEntry {
+  content: string;
+  fetchedAt: string;
+  sources: SignalSource[];
+}
+
+export type SignalCache = Record<string, SignalCacheEntry>;
+
+export type SignalUrgency = "HIGH" | "MED" | "LOW";
+
+export interface ParsedSignal {
+  urgency: SignalUrgency;
+  headline: string;
+  body: string;
+}
