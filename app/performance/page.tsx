@@ -123,7 +123,7 @@ export default function PerformancePage() {
               <span className="text-white/40">Performance</span>
             </h1>
             <p className="text-slate-400 text-sm mt-3 max-w-xl leading-relaxed">
-              Public market performance across AZX client sectors —
+              Public market performance across tracked client sectors —
               Real Estate (CBRE), Energy, Logistics, and Utilities.
               Charts update every 60 seconds.
             </p>
@@ -150,7 +150,7 @@ export default function PerformancePage() {
         <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
             { label: "Tracked Companies", value: stocks.length.toString() },
-            { label: "AZX Confirmed Clients", value: stocks.filter((s) => s.isClient).length.toString() },
+            { label: "Confirmed Clients", value: stocks.filter((s) => s.isClient).length.toString() },
             { label: "Gainers Today", value: `${gainers} / ${stocks.length}` },
             {
               label: "Combined Market Cap",

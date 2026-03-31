@@ -13,7 +13,7 @@ interface ResultCardProps {
 export function ResultCard({ score, tier, onRetake }: ResultCardProps) {
   const [copied, setCopied] = useState(false);
 
-  const shareText = `I scored ${score}/32 on the AZX GTM Intelligence Assessment: ${tier.label}
+  const shareText = `I scored ${score}/32 on the GTM Intelligence Assessment: ${tier.label}
 
 "${tier.description}"
 

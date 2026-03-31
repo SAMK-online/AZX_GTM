@@ -220,7 +220,7 @@ export function NewsletterTab() {
           </div>
           <p className="text-slate-500 text-sm max-w-sm mx-auto">
             Click any newsletter above for a one-click parse, or bring your own URL or text.
-            Claude extracts companies signaling buying intent, market trends, and AZX actions.
+            Claude extracts companies signaling buying intent, market trends, and recommended actions.
           </p>
         </div>
       )}

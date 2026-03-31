@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { AccountSignalsTab } from "./AccountSignalsTab";
 import { NewsletterTab } from "./NewsletterTab";
+import { ChurnAnalysisTab } from "./ChurnAnalysisTab";
 
-type Tab = "signals" | "newsletter";
+type Tab = "signals" | "newsletter" | "churn";
 
 const TABS: { id: Tab; label: string; sub: string }[] = [
   { id: "signals", label: "Account Signals", sub: "News monitoring for tracked accounts" },
   { id: "newsletter", label: "Newsletter Intelligence", sub: "Parse any newsletter or article" },
+  { id: "churn", label: "Churn Risk", sub: "Upload client CSV — Claude flags high-risk accounts" },
 ];
 
 export function MonitoringModule() {
@@ -17,7 +19,7 @@ export function MonitoringModule() {
   return (
     <div className="space-y-6">
       {/* Tab bar */}
-      <div className="flex gap-1 p-1 rounded-xl border border-azx-border bg-azx-card w-fit">
+      <div className="flex gap-1 p-1 rounded-xl border border-azx-border bg-azx-card w-fit flex-wrap">
         {TABS.map((tab) => (
           <button
             key={tab.id}
@@ -41,6 +43,7 @@ export function MonitoringModule() {
       {/* Tab content */}
       {activeTab === "signals" && <AccountSignalsTab />}
       {activeTab === "newsletter" && <NewsletterTab />}
+      {activeTab === "churn" && <ChurnAnalysisTab />}
     </div>
   );
 }

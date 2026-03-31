@@ -1,6 +1,6 @@
 import type { OutreachContact } from "@/types";
 
-const STORAGE_KEY = "azx-outreach-contacts";
+const STORAGE_KEY = "gtm-outreach-contacts";
 
 export function getContacts(): OutreachContact[] {
   if (typeof window === "undefined") return [];
@@ -40,7 +40,7 @@ export function clearContacts(): void {
 export function parseContactsFromText(
   text: string,
   company: string,
-  briefContext: { signals: string; painPoints: string; azxFit: string }
+  briefContext: { signals: string; painPoints: string; solutionFit: string }
 ): OutreachContact[] {
   const contacts: OutreachContact[] = [];
   // Split on numbered list items

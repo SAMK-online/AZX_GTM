@@ -8,10 +8,10 @@ const SECTION_ORDER: SectionKey[] = [
   "SIGNALS",
   "KEY_STAKEHOLDERS",
   "PAIN_POINTS",
-  "AZX_FIT",
+  "SOLUTION_FIT",
   "OUTREACH_ANGLE",
   "TIMING_SIGNALS",
-  "AZX_AI_OPPORTUNITIES",
+  "AI_OPPORTUNITIES",
   "PROSPECTIVE_CONTACTS",
 ];
 
@@ -19,10 +19,10 @@ const HEADER_MAP: Record<string, SectionKey> = {
   SIGNALS: "SIGNALS",
   "KEY STAKEHOLDERS": "KEY_STAKEHOLDERS",
   "PAIN POINTS": "PAIN_POINTS",
-  "AZX FIT": "AZX_FIT",
+  "SOLUTION FIT": "SOLUTION_FIT",
   "OUTREACH ANGLE": "OUTREACH_ANGLE",
   "TIMING SIGNALS": "TIMING_SIGNALS",
-  "AZX AI OPPORTUNITIES": "AZX_AI_OPPORTUNITIES",
+  "AI OPPORTUNITIES": "AI_OPPORTUNITIES",
   "PROSPECTIVE CONTACTS": "PROSPECTIVE_CONTACTS",
 };
 
@@ -93,7 +93,7 @@ export function ProspectStream({
     return null;
   }, [sections, isStreaming]);
 
-  const FULL_WIDTH_SECTIONS: SectionKey[] = ["AZX_AI_OPPORTUNITIES", "PROSPECTIVE_CONTACTS"];
+  const FULL_WIDTH_SECTIONS: SectionKey[] = ["AI_OPPORTUNITIES", "PROSPECTIVE_CONTACTS"];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">

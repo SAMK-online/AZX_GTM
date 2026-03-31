@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import Link from "next/link";
 
 export const metadata = {
-  title: "AI GTM Readiness Score — AZX GTM Brain",
+  title: "AI GTM Readiness Score — GTM Brain",
   description: "8 questions. Score your target account's AI GTM maturity and get specific unlock recommendations.",
 };
 

@@ -100,7 +100,7 @@ export function NodeDetail({ node, onClose }: NodeDetailProps) {
               </div>
             </div>
 
-            {/* AZX Role */}
+            {/* Platform Role */}
             <div
               className="p-3 rounded-lg border"
               style={{
@@ -112,10 +112,10 @@ export function NodeDetail({ node, onClose }: NodeDetailProps) {
                 className="font-mono text-xs uppercase tracking-widest mb-2"
                 style={{ color: node.color }}
               >
-                AZX Role
+                Platform Role
               </div>
               <p className="text-sm text-slate-300 leading-relaxed">
-                {node.azxRole}
+                {node.platformRole}
               </p>
             </div>
           </div>

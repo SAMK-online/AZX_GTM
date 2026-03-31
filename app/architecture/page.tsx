@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import Link from "next/link";
 
 export const metadata = {
-  title: "GTM Brain Architecture — AZX GTM Brain",
+  title: "GTM Brain Architecture — GTM Brain",
   description: "Interactive AI GTM stack diagram. 16 nodes, 7 layers. Click any component to explore.",
 };
 
@@ -29,8 +29,8 @@ export default function ArchitecturePage() {
               </h1>
               <p className="text-slate-400 text-base max-w-xl leading-relaxed">
                 A complete interactive map of an AI-powered GTM stack. Every node shows its
-                purpose, inputs, outputs, real tool examples, and exactly where AZX&apos;s
-                AI changes the economics.
+                purpose, inputs, outputs, real tool examples, and exactly where
+                AI changes the economics at each layer.
               </p>
             </div>
           </div>

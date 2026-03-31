@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Signal Monitor — AZX GTM Brain",
+  title: "Signal Monitor — GTM Brain",
   description: "Live news monitoring for tracked accounts and newsletter intelligence parsing.",
 };
 
@@ -30,7 +30,7 @@ export default function MonitoringPage() {
               <p className="text-slate-400 text-base max-w-xl leading-relaxed">
                 Live news monitoring for every account you&apos;re tracking. Paste any newsletter
                 or article and Claude extracts companies signaling buying intent, market trends,
-                and specific AZX actions — all in real time.
+                and recommended actions — all in real time.
               </p>
             </div>
             <div className="flex flex-col gap-2 font-mono text-[10px] text-white/30 tracking-widest shrink-0">

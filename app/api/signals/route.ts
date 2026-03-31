@@ -34,9 +34,9 @@ export async function POST(request: Request) {
         .join("\n\n")
     : "No recent news found. Use your training knowledge to identify likely current signals.";
 
-  const prompt = `You are an AI GTM signal analyst for AZX — an AI company selling domain-specific AI to energy, utilities, and industrial enterprises.
+  const prompt = `You are an AI GTM signal analyst. Your job is to extract actionable buying signals from news for enterprise sales teams.
 
-Analyze the following recent news about ${companyName} and extract 3-5 GTM buying signals. Each signal should tell an enterprise AE exactly what is happening and what it means for an AZX conversation.
+Analyze the following recent news about ${companyName} and extract 3-5 GTM buying signals. Each signal should tell an enterprise AE exactly what is happening and what it means for an outreach conversation.
 
 NEWS:
 ${newsContext}
@@ -45,7 +45,7 @@ Output each signal in this exact format (maintain the ## headers):
 
 ## [URGENCY] Signal headline
 
-One paragraph: what happened, why it creates a window for AZX, and the specific outreach angle this enables. Be concrete — reference the actual news. No generic "this company is investing in AI" statements.
+One paragraph: what happened, why it creates a buying window, and the specific outreach angle this enables. Be concrete — reference the actual news. No generic "this company is investing in AI" statements.
 
 URGENCY levels:
 - HIGH: Active initiative, imminent budget cycle, regulatory deadline, or competitive threat within 90 days

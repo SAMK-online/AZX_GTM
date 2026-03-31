@@ -10,6 +10,9 @@ dist/
 .vercel/
 .cache/
 
+# Git
+.git/
+
 # TypeScript incremental build
 tsconfig.tsbuildinfo
 
@@ -22,3 +25,7 @@ npm-debug.log*
 
 # OS files
 .DS_Store
+Thumbs.db
+
+# Lock files (large, rarely useful for Claude)
+package-lock.json

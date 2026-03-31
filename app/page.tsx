@@ -15,7 +15,7 @@ const MODULES = [
     title: "Prospect Intelligence Engine",
     subtitle: "Type a company. Get a full GTM brief in 15 seconds.",
     description:
-      "Live web search + Claude synthesis. Signals, stakeholders, pain points, AZX fit, outreach angle, and timing — all streamed in real time.",
+      "Live web search + Claude synthesis. Signals, stakeholders, pain points, solution fit, outreach angle, and timing — all streamed in real time.",
     cta: "Run Intelligence Engine",
     stat: { value: "~15s", label: "to brief" },
     preview: (
@@ -29,7 +29,7 @@ const MODULES = [
             { s: "SIGNALS", active: true, lines: [75, 55, 90, 60] },
             { s: "STAKEHOLDERS", active: false, lines: [70, 80, 50] },
             { s: "PAIN POINTS", active: false, lines: [85, 60, 70] },
-            { s: "AZX FIT", active: false, lines: [65, 80] },
+            { s: "SOLUTION FIT", active: false, lines: [65, 80] },
             { s: "OUTREACH", active: false, lines: [90, 55, 75] },
             { s: "TIMING", active: false, lines: [60, 70] },
           ].map(({ s, active, lines }) => (
@@ -59,7 +59,7 @@ const MODULES = [
     title: "GTM Brain Architecture",
     subtitle: "Every layer of the AI GTM stack. Fully interactive.",
     description:
-      "16 nodes. 7 layers. Click any component to see what it does, what tools power it, and where AZX's AI changes the economics.",
+      "16 nodes. 7 layers. Click any component to see what it does, what tools power it, and where AI changes the economics.",
     cta: "Explore Architecture",
     stat: { value: "16", label: "nodes" },
     preview: (
@@ -174,7 +174,7 @@ const MODULES = [
     accentBg: "rgba(255,255,255,0.04)",
     tag: "LIVE · YAHOO FINANCE",
     title: "Client Performance",
-    subtitle: "Public market data for AZX client sectors.",
+    subtitle: "Public market data for tracked client sectors.",
     description:
       "Real-time stock charts for CBRE and sector benchmarks across Energy, Logistics, and Utilities. Interactive 30-day price history with 52-week range tracking.",
     cta: "View Performance",
@@ -220,7 +220,7 @@ const MODULES = [
     title: "Signal Monitor",
     subtitle: "Live news monitoring for every account you track.",
     description:
-      "Auto-synced from your Intelligence Engine sessions. Paste any newsletter or article — Claude extracts companies signaling buying intent, market trends, and specific AZX actions.",
+      "Auto-synced from your Intelligence Engine sessions. Paste any newsletter or article — Claude extracts companies signaling buying intent, market trends, and recommended actions.",
     cta: "Open Signal Monitor",
     stat: { value: "Live", label: "signals" },
     preview: (
@@ -327,7 +327,7 @@ export default function Home() {
                   <div className="w-3 h-3 rounded-full bg-white/20" />
                 </div>
                 <div className="flex-1 mx-4 px-3 py-1 rounded bg-azx-dark border border-azx-border font-mono text-xs text-azx-muted">
-                  azxgtmbrain.vercel.app/intelligence
+                  gtmbrain.vercel.app/intelligence
                 </div>
               </div>
 
@@ -353,7 +353,7 @@ export default function Home() {
                     <span className="ml-1 px-2 py-0.5 rounded bg-white/5 border border-white/15 text-white/50 text-[10px]">web-grounded</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 flex-1">
-                    {["SIGNALS", "STAKEHOLDERS", "PAIN POINTS", "AZX FIT", "OUTREACH", "TIMING"].map((s, i) => (
+                    {["SIGNALS", "STAKEHOLDERS", "PAIN POINTS", "SOLUTION FIT", "OUTREACH", "TIMING"].map((s, i) => (
                       <div key={s} className={`p-2 rounded border font-mono text-[9px] ${i === 0 ? "border-white/20 bg-white/5" : "border-azx-border"}`}>
                         <div className={`tracking-widest mb-1 ${i === 0 ? "text-white" : "text-azx-muted"}`}>{s}</div>
                         <div className="space-y-0.5">
@@ -491,9 +491,9 @@ export default function Home() {
                   I built the demo instead of writing about it.
                 </h3>
                 <p className="text-slate-400 leading-relaxed mb-4">
-                  Every system here maps directly to what I&apos;d build at AZX on day one:
+                  Every system here is a working building block for an AI-native GTM stack:
                   a Tavily → Claude signal pipeline for prospect research, an AI orchestration
-                  layer for the GTM stack, and interactive content tools for demand gen.
+                  layer for the full GTM stack, and interactive content tools for demand gen.
                 </p>
                 <div className="font-mono text-xs text-azx-muted">
                   Next.js 14 · Claude claude-sonnet-4-6 (Edge streaming) · Tavily · Vercel · Zero backend

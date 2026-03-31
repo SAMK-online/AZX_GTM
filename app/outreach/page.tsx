@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Outreach Builder — AZX GTM Brain",
+  title: "Outreach Builder — GTM Brain",
   description: "Generate personalized outreach emails and LinkedIn messages for your prospect contacts.",
 };
 

@@ -10,7 +10,7 @@ export function Header() {
         {/* Wordmark */}
         <Link href="/"
           className="font-mono text-sm font-bold tracking-widest text-white hover:text-white/70 transition-colors">
-          AZX <span className="text-white/50">GTM</span> BRAIN
+          <span className="text-white/50">GTM</span> BRAIN
         </Link>
 
         {/* GitHub */}

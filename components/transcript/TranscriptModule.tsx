@@ -21,7 +21,7 @@ SARAH CHEN: Good. Jordan — CBRE outreach. You were supposed to hit 30 cold tou
 
 JORDAN KIM: Got through 22 of 30. CBRE portfolio team responded — I have a meeting with their Director of Technology, Robert Chen, set for Thursday at 2 PM. Still working through the Puget Sound Energy list.
 
-SARAH CHEN: Finish the remaining 8 CBRE touches today — they're already warm, don't lose momentum. Then start the Puget Sound Energy sequence. Use the newsletter signal we flagged — they just announced a $200M grid modernization project. That's our hook. Also run the full prospect intelligence report on CBRE through the engine — stakeholders, pain points, AZX fit — have it ready by Wednesday EOD so I can review before Thursday's call.
+SARAH CHEN: Finish the remaining 8 CBRE touches today — they're already warm, don't lose momentum. Then start the Puget Sound Energy sequence. Use the newsletter signal we flagged — they just announced a $200M grid modernization project. That's our hook. Also run the full prospect intelligence report on CBRE through the engine — stakeholders, pain points, solution fit — have it ready by Wednesday EOD so I can review before Thursday's call.
 
 JORDAN KIM: Got it. One thing — I don't have access to the prospect intelligence engine for Puget Sound Energy yet.
 
@@ -137,7 +137,7 @@ export function TranscriptModule() {
           <Zap size={12} />
           Load Demo Transcript
         </button>
-        <span className="font-mono text-[10px] text-azx-muted">Q2 GTM strategy · 5 participants · AZX accounts</span>
+        <span className="font-mono text-[10px] text-azx-muted">Q2 GTM strategy · 5 participants · enterprise accounts</span>
       </div>
 
       {/* Transcript input */}

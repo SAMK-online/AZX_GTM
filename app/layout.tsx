@@ -4,13 +4,13 @@ import { GlobalBackground } from "@/components/ui/GlobalBackground";
 import { BottomNavBar } from "@/components/ui/bottom-nav-bar";
 
 export const metadata: Metadata = {
-  title: "AZX GTM Brain — AI-Powered Go-to-Market Intelligence",
+  title: "GTM Brain — AI-Powered Go-to-Market Intelligence",
   description:
-    "A working AI GTM system built for AZX: Prospect Intelligence Engine, GTM Architecture, and AI Readiness Score. Built by Abdul Shaik.",
+    "A working AI GTM system: Prospect Intelligence Engine, GTM Architecture, and AI Readiness Score. Built by Abdul Shaik.",
   openGraph: {
-    title: "AZX GTM Brain",
+    title: "GTM Brain",
     description:
-      "Live prospect intelligence, interactive GTM architecture, and AI readiness scoring — built as a job application for AZX.",
+      "Live prospect intelligence, interactive GTM architecture, and AI readiness scoring — a working AI-native GTM platform.",
     type: "website",
   },
 };

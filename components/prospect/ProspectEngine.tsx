@@ -55,7 +55,7 @@ export function ProspectEngine() {
     const briefContext = {
       signals: extractSection(streamContent, "SIGNALS"),
       painPoints: extractSection(streamContent, "PAIN POINTS"),
-      azxFit: extractSection(streamContent, "AZX FIT"),
+      solutionFit: extractSection(streamContent, "SOLUTION FIT"),
     };
 
     const parsed = parseContactsFromText(contactsText, currentCompany, briefContext);

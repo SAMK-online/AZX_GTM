@@ -4,10 +4,10 @@ export type SectionKey =
   | "SIGNALS"
   | "KEY_STAKEHOLDERS"
   | "PAIN_POINTS"
-  | "AZX_FIT"
+  | "SOLUTION_FIT"
   | "OUTREACH_ANGLE"
   | "TIMING_SIGNALS"
-  | "AZX_AI_OPPORTUNITIES"
+  | "AI_OPPORTUNITIES"
   | "PROSPECTIVE_CONTACTS";
 
 export type Industry =
@@ -38,7 +38,7 @@ export interface GTMNode {
   inputs: string[];
   outputs: string[];
   tools: string[];
-  azxRole: string;
+  platformRole: string;
   color: string;
 }
 
@@ -85,7 +85,7 @@ export interface OutreachContact {
   briefContext: {
     signals: string;
     painPoints: string;
-    azxFit: string;
+    solutionFit: string;
   };
 }
 
@@ -112,4 +112,24 @@ export interface ParsedSignal {
   urgency: SignalUrgency;
   headline: string;
   body: string;
+}
+
+// ── Churn Risk Analyzer ───────────────────────────────────────────────────
+
+export type ChurnRiskLevel = "HIGH" | "LOW" | "WELL_PERFORMING";
+
+export interface ChurnClient {
+  riskLevel: ChurnRiskLevel;
+  riskScore: number;
+  reasoning: string;
+  [key: string]: string | number;
+}
+
+export interface ChurnAnalysisResult {
+  analyzed: ChurnClient[];
+  summary: {
+    highRisk: number;
+    lowRisk: number;
+    wellPerforming: number;
+  };
 }

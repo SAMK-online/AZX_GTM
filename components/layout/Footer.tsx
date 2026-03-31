@@ -5,8 +5,6 @@ export function Footer() {
         <div className="font-mono text-xs text-azx-muted">
           Built by{" "}
           <span className="text-white">Abdul Shaik</span>
-          {" "}for{" "}
-          <span className="text-white">AZX</span>
         </div>
         <div className="flex items-center gap-4 font-mono text-xs text-azx-muted">
           <a

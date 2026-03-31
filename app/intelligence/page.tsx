@@ -5,7 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Prospect Intelligence Engine — AZX GTM Brain",
+  title: "Prospect Intelligence Engine — GTM Brain",
   description: "Type a company name. Get a full AI-powered GTM brief in 15 seconds.",
 };
 
@@ -29,7 +29,7 @@ export default function IntelligencePage() {
               </h1>
               <p className="text-slate-400 text-base max-w-xl leading-relaxed">
                 Live web search via Tavily, synthesized by Claude into a structured 6-section
-                GTM brief. Signals, stakeholders, pain points, AZX fit, outreach angle,
+                GTM brief. Signals, stakeholders, pain points, solution fit, outreach angle,
                 and timing signals — streamed in real time.
               </p>
             </div>

@@ -12,10 +12,10 @@ const SECTION_META: Record<
   SIGNALS: { label: "Signals", icon: "◎", color: "rgba(255,255,255,0.9)" },
   KEY_STAKEHOLDERS: { label: "Key Stakeholders", icon: "◈", color: "rgba(255,255,255,0.75)" },
   PAIN_POINTS: { label: "Pain Points", icon: "⚡", color: "rgba(255,255,255,0.9)" },
-  AZX_FIT: { label: "AZX Fit", icon: "◎", color: "rgba(255,255,255,0.75)" },
+  SOLUTION_FIT: { label: "Solution Fit", icon: "◎", color: "rgba(255,255,255,0.75)" },
   OUTREACH_ANGLE: { label: "Outreach Angle", icon: "✦", color: "rgba(255,255,255,0.9)" },
   TIMING_SIGNALS: { label: "Timing Signals", icon: "◷", color: "rgba(255,255,255,0.75)" },
-  AZX_AI_OPPORTUNITIES: { label: "AZX AI Opportunities", icon: "⬡", color: "rgba(255,255,255,0.9)" },
+  AI_OPPORTUNITIES: { label: "AI Opportunities", icon: "⬡", color: "rgba(255,255,255,0.9)" },
   PROSPECTIVE_CONTACTS: { label: "Prospective Contacts", icon: "◈", color: "rgba(255,255,255,0.75)" },
 };
 

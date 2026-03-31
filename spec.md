@@ -1,11 +1,11 @@
-# AZX GTM Brain — Implementation Spec
+# GTM Brain — Implementation Spec
 > Last updated: March 2026 (post-interview decisions locked in)
 
 ---
 
 ## Project Summary
 
-A single-page "vibe coded" portfolio app demonstrating AI-native GTM thinking, built for the AZX AI GTM Engineer application. Tone: confident, precision-engineered. LinkedIn DM with the link goes out first; the page itself contains a "Why I Built This" closing section.
+A single-page "vibe coded" portfolio app demonstrating AI-native GTM thinking, built for the GTM Brain Platform application. Tone: confident, precision-engineered. LinkedIn DM with the link goes out first; the page itself contains a "Why I Built This" closing section.
 
 ---
 
@@ -90,7 +90,7 @@ Typography: `font-mono` for labels/section numbers, Inter/system-sans for body, 
 ## Section Map
 
 ```
-[ HEADER ] — Sticky, 64px, backdrop-blur. "AZX GTM BRAIN" + anchors.
+[ HEADER ] — Sticky, 64px, backdrop-blur. "GTM BRAIN" + anchors.
      │
 [ HERO ] — Full viewport. Terminal boot. No date. Three anchor CTAs.
      │
@@ -117,7 +117,7 @@ Typography: `font-mono` for labels/section numbers, Inter/system-sans for body, 
 - **6 ghost skeletons upfront** — all 6 cards render as dim skeletons immediately on submit. No layout shift. Cards fill as stream arrives.
 - **Per-section copy icons** — each card has a copy icon in the top-right corner. No "Copy All." AE copies just the section they need.
 - **Silent retry once** — on stream error, retry the full request silently. If retry fails, show error banner above the grid with partial output preserved.
-- **AZX context injected** — system prompt includes 2-3 sentences describing AZX's actual positioning so the AZX FIT section is grounded.
+- **Context injected** — system prompt includes 2-3 sentences describing the platform's actual positioning so the SOLUTION FIT section is grounded.
 
 ### Input
 - Company name text input (placeholder: "Try: Schneider Electric, Siemens, EDF...")
@@ -132,7 +132,7 @@ Typography: `font-mono` for labels/section numbers, Inter/system-sans for body, 
 | 1 | SIGNALS | Radar | 3-5 live signals from Tavily + Claude synthesis |
 | 2 | KEY STAKEHOLDERS | People | 3 relevant execs: Name, Title, one-liner |
 | 3 | PAIN POINTS | Lightning | 3 pain points tied to AI/energy transformation |
-| 4 | AZX FIT | Target | Grounded in AZX's actual positioning |
+| 4 | SOLUTION FIT | Target | Grounded in the platform's actual positioning |
 | 5 | OUTREACH ANGLE | Message | Specific first email hook + subject line |
 | 6 | TIMING SIGNALS | Clock | Why now? Regulatory, fiscal, calendar |
 
@@ -153,7 +153,7 @@ app/api/prospect/route.ts  [Edge runtime]
     ├─ Tavily search: `{companyName} {industry} recent news signals 2025`
     │   Returns: top 5 results { title, url, snippet }
     │
-    ├─ Build prompt: inject Tavily results + AZX context + industry focus
+    ├─ Build prompt: inject Tavily results + the platform context + industry focus
     │
     ├─ anthropic.messages.stream({ model: 'claude-sonnet-4-6', messages, max_tokens: 1500 })
     │
@@ -192,8 +192,8 @@ BriefSectionCard (per section)
 ```
 SYSTEM:
 You are an expert AI GTM strategist specializing in enterprise {industry} technology sales.
-AZX is an AI company that helps energy and industrial enterprises accelerate their AI transformation —
-from grid modernization to predictive maintenance to intelligent operations. AZX's buyers are
+GTM Brain is an AI company that helps energy and industrial enterprises accelerate their AI transformation —
+from grid modernization to predictive maintenance to intelligent operations. the platform's buyers are
 VP-level and above at utilities, industrials, and energy companies undergoing digital transformation.
 
 You produce precise, specific, research-grounded GTM intelligence briefs. Never generic.
@@ -210,7 +210,7 @@ Sections (in order, using ## headers):
 ## SIGNALS
 ## KEY STAKEHOLDERS
 ## PAIN POINTS
-## AZX FIT
+## SOLUTION FIT
 ## OUTREACH ANGLE
 ## TIMING SIGNALS
 
@@ -305,7 +305,7 @@ interface GTMNode {
   inputs: string[];
   outputs: string[];
   tools: string[];        // Real product names (e.g., "Bombora", "Gong")
-  azxRole: string;        // Where AZX AI plugs in at this layer
+  platformRole: string;        // Where the platform AI plugs in at this layer
   color: string;          // Layer accent color
 }
 
@@ -344,7 +344,7 @@ On toggle:
 - Inputs list
 - Outputs list
 - Tools (real product names)
-- "AZX Role" — where AZX's AI changes the economics at this layer
+- Platform Role — where AI changes the economics at this layer
 
 ### Mobile Fallback (`MobileLayerCards.tsx`)
 
@@ -550,7 +550,7 @@ keyframes: {
 [monospace label]  CANDIDATE BRIEF v1.0           ← no date
 
 [large display]    GTM Brain
-[large display, cyan]  for AZX
+[large display, cyan]  for enterprise GTM teams
 
 [subtitle, muted]  This is what AI-native go-to-market looks like.
 [subtitle, muted]  Not slides. Not a PDF. A working system.
@@ -574,15 +574,15 @@ CANDIDATE BRIEF — APPROACH NOTES
 
 Why Prospect Intelligence first:
 The centerpiece isn't a demo of Claude — it's a demo of prompt engineering for GTM.
-The Tavily → Claude pipeline shows how I'd actually build a signal-to-brief workflow for AZX's team.
+The Tavily → Claude pipeline shows how I'd actually build a signal-to-brief workflow for your team.
 
 Why the Architecture diagram:
 I've seen too many GTM architecture slides with boxes and no depth.
 Every node here has a purpose, real tools, and a specific place where AI changes the economics.
 
 Why the Readiness Score:
-AZX sells to enterprises at every stage of AI adoption. This tool qualifies them in 2 minutes.
-I'd build this for AZX's own demand gen pipeline from day one.
+GTM Brain targets enterprises at every stage of AI adoption. This tool qualifies them in 2 minutes.
+I'd build this for your demand gen pipeline from day one.
 
 [GitHub →]  [LinkedIn →]
 ```
@@ -688,9 +688,9 @@ useEffect(() => {
 ## GitHub README Outline
 
 ```markdown
-# AZX GTM Brain
+# GTM Brain
 
-A working AI GTM intelligence system built as a job application for AZX's AI GTM Engineer role.
+A working AI GTM intelligence system built as a job application for a GTM Engineering role.
 
 ## What It Does
 - Prospect Intelligence Engine: Tavily search → Claude synthesis → structured GTM brief

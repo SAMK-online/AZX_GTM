@@ -12,7 +12,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Web sources", "News APIs", "LinkedIn", "Job boards"],
     outputs: ["Raw signal events", "Company activity feed"],
     tools: ["Apify", "PhantomBuster", "Exa", "Tavily"],
-    azxRole: "AZX enriches raw signals with energy sector context, flagging grid modernization and decarbonization initiatives.",
+    platformRole: "The AI layer enriches raw signals with industry context, flagging relevant strategic initiatives and transformation milestones that generic crawlers miss.",
     color: "#3B82F6",
   },
   {
@@ -25,7 +25,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Salesforce / HubSpot", "Engagement data", "Deal history"],
     outputs: ["Unified account records", "Activity history"],
     tools: ["Salesforce", "HubSpot", "Zapier", "Census"],
-    azxRole: "AZX writes AI-generated insights back to CRM records, making intelligence accessible to every rep without workflow changes.",
+    platformRole: "AI-generated insights are written back to CRM records automatically, making intelligence accessible to every rep without changing their workflow.",
     color: "#3B82F6",
   },
   {
@@ -38,7 +38,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["G2 intent data", "Bombora surges", "LinkedIn activity"],
     outputs: ["Intent scores", "In-market account list"],
     tools: ["Bombora", "G2 Buyer Intent", "LinkedIn Sales Nav"],
-    azxRole: "AZX overlays energy sector intent signals — grid RFPs, regulatory filings, sustainability reports — that generic intent tools miss.",
+    platformRole: "The AI layer overlays industry-specific intent signals — RFPs, regulatory filings, strategic reports — that generic intent tools consistently miss.",
     color: "#3B82F6",
   },
 
@@ -53,7 +53,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Signal events", "CRM history", "Intent scores", "Firmographic data"],
     outputs: ["Fit score (0-100)", "Timing score (0-100)", "Priority tier"],
     tools: ["Custom ML", "MadKudu", "6sense"],
-    azxRole: "AZX's scoring model is trained specifically on energy enterprise buying patterns, weighting regulatory timelines and capex cycles.",
+    platformRole: "The scoring model is trained on your specific closed-won data, weighting the regulatory timelines, budget cycles, and buying patterns that matter for your ICP.",
     color: "#00D4FF",
   },
   {
@@ -66,7 +66,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["LinkedIn data", "Published articles", "Conference talks", "CRM notes"],
     outputs: ["Exec profile", "Communication style guide", "Key priorities"],
     tools: ["Clay", "Clearbit", "Apollo"],
-    azxRole: "AZX generates energy-specific executive profiles, mapping each persona's relationship to sustainability mandates and operational KPIs.",
+    platformRole: "AI generates executive profiles tailored to your solution, mapping each persona's relationship to the strategic priorities your product addresses.",
     color: "#00D4FF",
   },
   {
@@ -79,7 +79,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Win/loss data", "Competitor news", "Gong call transcripts"],
     outputs: ["Live battle cards", "Competitive positioning matrix"],
     tools: ["Klue", "Crayon", "Custom LLM pipeline"],
-    azxRole: "AZX monitors energy tech competitors in real time, flagging new product announcements and partnership shifts that affect positioning.",
+    platformRole: "AI monitors competitors in real time, flagging new product announcements and partnership shifts that affect your positioning before your reps walk into a call.",
     color: "#00D4FF",
   },
 
@@ -94,7 +94,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Exec profiles", "Fit/timing scores", "Recent signals", "Battle cards"],
     outputs: ["Personalized email sequences", "LinkedIn messages", "Call scripts"],
     tools: ["Claude / GPT-4", "Outreach", "Salesloft"],
-    azxRole: "AZX is the AI layer — generating first touches that reference specific grid projects, regulatory filings, or earnings call language.",
+    platformRole: "AI is the generation layer — producing first touches that reference specific initiatives, filings, or earnings call language rather than generic value propositions.",
     color: "#14B8A6",
   },
   {
@@ -107,7 +107,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Account data", "Industry vertical", "Buyer persona", "Use case library"],
     outputs: ["Custom one-pagers", "Personalized decks", "ROI models"],
     tools: ["Claude", "Tome", "Beautiful.ai"],
-    azxRole: "AZX generates energy-specific ROI models and technical one-pagers tailored to utility vs. industrial vs. O&G buyer contexts.",
+    platformRole: "AI generates industry-specific ROI models and technical collateral tailored to each buyer context — utility vs. industrial vs. enterprise — on demand.",
     color: "#14B8A6",
   },
 
@@ -122,7 +122,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Priority scores", "Account stage", "Rep capacity", "Campaign calendars"],
     outputs: ["Action assignments", "Sequence triggers", "Escalation alerts"],
     tools: ["Custom workflow engine", "n8n", "Zapier"],
-    azxRole: "AZX's orchestration layer understands energy procurement cycles, automatically timing outreach around budget seasons and project milestones.",
+    platformRole: "The AI orchestration layer understands your specific procurement cycles, automatically timing outreach around budget seasons and project milestones.",
     color: "#8B5CF6",
   },
   {
@@ -135,7 +135,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Orchestrator actions", "CRM state changes", "Engagement signals"],
     outputs: ["Automated tasks", "Sequence enrollments", "Slack/email alerts"],
     tools: ["Make (Integromat)", "Zapier", "HubSpot Workflows"],
-    azxRole: "AZX monitors regulatory announcement feeds and auto-triggers outreach when relevant energy policy changes drop.",
+    platformRole: "AI monitors signal feeds and auto-triggers outreach when relevant events drop — regulatory announcements, funding rounds, leadership changes — without rep intervention.",
     color: "#8B5CF6",
   },
 
@@ -150,7 +150,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Generated sequences", "Rep assignments", "Contact data"],
     outputs: ["Sent messages", "Meeting bookings", "Engagement data"],
     tools: ["Outreach.io", "Salesloft", "Apollo"],
-    azxRole: "AZX-generated sequences plug directly into execution tools — reps review and send, AI does the research and writing.",
+    platformRole: "AI-generated sequences plug directly into execution tools — reps review and send, the AI handles research and writing at scale.",
     color: "#FF8C42",
   },
   {
@@ -163,7 +163,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Prioritized account list", "Buyer personas", "Campaign content"],
     outputs: ["LinkedIn ad audiences", "Google display audiences", "Retargeting lists"],
     tools: ["LinkedIn Campaign Manager", "Demandbase", "RollWorks"],
-    azxRole: "AZX dynamically updates ad audiences based on real-time account scoring, pausing spend on accounts that go cold.",
+    platformRole: "AI dynamically updates ad audiences based on real-time account scoring, pausing spend on accounts that go cold and accelerating on accounts heating up.",
     color: "#FF8C42",
   },
   {
@@ -176,7 +176,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Shared account lists", "Partner profiles", "Co-sell opportunities"],
     outputs: ["Partner briefs", "Joint outreach assets", "Co-sell pipeline"],
     tools: ["Impartner", "PartnerStack", "Crossbeam"],
-    azxRole: "AZX generates partner-specific account briefs that highlight the intersection between partner capabilities and AZX's AI layer.",
+    platformRole: "AI generates partner-specific account briefs that highlight the intersection between partner capabilities and your solution, enabling faster co-sell activation.",
     color: "#FF8C42",
   },
 
@@ -191,7 +191,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Call recordings", "Meeting transcripts", "Deal outcomes"],
     outputs: ["Talk track recommendations", "Objection library", "Coaching flags"],
     tools: ["Gong", "Chorus", "Otter.ai"],
-    azxRole: "AZX extracts energy-specific objection patterns and winning narratives from calls, feeding them back into battle cards and outreach templates.",
+    platformRole: "AI extracts industry-specific objection patterns and winning narratives from calls, feeding them back into battle cards and outreach templates automatically.",
     color: "#F97316",
   },
   {
@@ -204,7 +204,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Deal data", "Touchpoint history", "Campaign data", "Engagement signals"],
     outputs: ["Attribution reports", "Channel ROI", "Influenced pipeline"],
     tools: ["Rockerbox", "Triple Whale", "Custom analytics"],
-    azxRole: "AZX attribution shows which AI-generated content and sequences actually moved deals — giving clear signal on where to invest next.",
+    platformRole: "AI attribution shows which generated content and sequences actually moved deals — giving clear signal on where to invest the next dollar of GTM spend.",
     color: "#F97316",
   },
 
@@ -219,7 +219,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["All layer outputs", "CRM data", "Attribution data"],
     outputs: ["Executive dashboards", "Rep scorecards", "Campaign performance"],
     tools: ["Tableau", "Looker", "Custom Next.js dashboard"],
-    azxRole: "AZX adds AI-powered anomaly detection — surfacing when pipeline velocity drops before humans notice the trend.",
+    platformRole: "AI adds anomaly detection across the entire GTM stack — surfacing when pipeline velocity drops before humans notice the trend and recommending corrective actions.",
     color: "#00FF88",
   },
   {
@@ -232,7 +232,7 @@ export const GTM_NODES: GTMNode[] = [
     inputs: ["Win/loss outcomes", "Engagement data", "Attribution results"],
     outputs: ["Updated scoring models", "Improved prompts", "Refined ICP definitions"],
     tools: ["Custom ML pipeline", "Weights & Biases", "LangSmith"],
-    azxRole: "AZX's proprietary data moat: every closed deal and lost opportunity makes the next AI output smarter. The system compounds over time.",
+    platformRole: "The proprietary data flywheel: every closed deal and lost opportunity makes the next AI output smarter. The system compounds in accuracy over time.",
     color: "#00FF88",
   },
 ];

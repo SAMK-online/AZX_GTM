@@ -12,7 +12,7 @@ const RequestSchema = z.object({
   briefContext: z.object({
     signals: z.string(),
     painPoints: z.string(),
-    azxFit: z.string(),
+    solutionFit: z.string(),
   }),
 });
 
@@ -35,18 +35,17 @@ ${description}
 Company intelligence:
 - Signals: ${briefContext.signals}
 - Pain points: ${briefContext.painPoints}
-- AZX fit: ${briefContext.azxFit}
+- Solution fit: ${briefContext.solutionFit}
 
 Write the email in this exact format:
 SUBJECT: [specific subject line referencing their situation]
 
 Hi ${name.split(" ")[0]},
 
-[3-4 short sentences: hook referencing their specific initiative or challenge → connect to AZX's domain-specific AI → clear value proposition → CTA for a 20-minute call]
+[3-4 short sentences: hook referencing their specific initiative or challenge → connect the solution to their priorities → clear value proposition → CTA for a 20-minute call]
 
 Best,
 [Your Name]
-AZX
 
 Rules: executive peer tone, no generic AI pitches, reference something specific and observable about ${company}, scannable, under 150 words total.`
     : `Write a LinkedIn connection request message for ${name}, ${title} at ${company}.

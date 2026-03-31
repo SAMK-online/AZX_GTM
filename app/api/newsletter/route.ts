@@ -40,9 +40,9 @@ export async function POST(request: Request) {
 
   const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-  const prompt = `You are a GTM intelligence analyst for AZX — an AI company selling domain-specific AI to energy, utilities, and industrial enterprises.
+  const prompt = `You are a GTM intelligence analyst. Your job is to extract actionable intelligence from newsletters and articles for enterprise sales teams.
 
-Parse the following newsletter or article and extract actionable GTM intelligence. Focus on signals relevant to enterprise AI adoption, digital transformation, and companies in energy, utilities, industrials, and adjacent sectors.
+Parse the following newsletter or article and extract actionable GTM intelligence. Focus on signals relevant to enterprise AI adoption, digital transformation, and strategic moves across any sector.
 
 CONTENT:
 ${content}
@@ -52,17 +52,17 @@ Structure your response with exactly these sections:
 ## COMPANIES SIGNALING
 
 For each company mentioned that shows buying signals or strategic moves relevant to AI/digital transformation:
-**Company Name** — What they announced and why it matters for AZX outreach. One sentence on the specific angle.
+**Company Name** — What they announced and why it matters for outreach. One sentence on the specific angle.
 
 If no companies with clear signals, state: "No direct target companies identified — see market trends below."
 
 ## MARKET TRENDS
 
-3 key themes from this content that affect AZX's GTM motion. Each as a bolded trend name followed by one sentence of implication.
+3 key themes from this content that affect the GTM motion. Each as a bolded trend name followed by one sentence of implication.
 
 ## RECOMMENDED ACTIONS
 
-3 specific next steps an AZX AE should take based on this intelligence. Numbered list. Be concrete — name companies, reference specific signals.
+3 specific next steps a sales team should take based on this intelligence. Numbered list. Be concrete — name companies, reference specific signals.
 
 Start immediately with ## COMPANIES SIGNALING. No preamble.`;
 

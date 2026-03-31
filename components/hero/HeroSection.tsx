@@ -30,7 +30,7 @@ export function HeroSection() {
         {/* Top label */}
         <div className="font-mono text-xs text-azx-muted tracking-[0.3em] uppercase mb-8 animate-fade-in-up opacity-0"
           style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}>
-          CANDIDATE BRIEF v1.0
+          AI-NATIVE GTM PLATFORM
         </div>
 
         {/* Main headline */}
@@ -50,7 +50,7 @@ export function HeroSection() {
           className="font-mono text-azx-muted text-lg mb-10 animate-fade-in-up opacity-0"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
-          for <span className="text-white">AZX</span>
+          for <span className="text-white">Enterprise GTM Teams</span>
         </div>
 
         {/* Subtitle */}

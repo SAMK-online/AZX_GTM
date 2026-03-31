@@ -1,11 +1,11 @@
 import type { SignalCache, SignalCacheEntry, SignalSource } from "@/types";
 import { getContacts } from "./outreach-store";
 
-const SIGNALS_CACHE_KEY = "azx-signals-cache";
-const TRACKED_COMPANIES_KEY = "azx-tracked-companies";
-const DISMISSED_DEFAULTS_KEY = "azx-dismissed-defaults";
+const SIGNALS_CACHE_KEY = "gtm-signals-cache";
+const TRACKED_COMPANIES_KEY = "gtm-tracked-companies";
+const DISMISSED_DEFAULTS_KEY = "gtm-dismissed-defaults";
 
-// AZX's known category-leader customers — always pre-seeded
+// Default tracked companies — pre-seeded as examples
 export const DEFAULT_COMPANIES: { name: string; sector: string }[] = [
   { name: "CBRE", sector: "Real Estate" },
   { name: "LevelTen Energy", sector: "Energy" },
@@ -123,7 +123,7 @@ export function getAllTrackedCompanies(): string[] {
     }
   };
 
-  // 1. Default AZX customers (unless dismissed)
+  // 1. Default tracked companies (unless dismissed)
   for (const { name } of DEFAULT_COMPANIES) {
     if (!dismissed.includes(name.toLowerCase())) add(name);
   }
