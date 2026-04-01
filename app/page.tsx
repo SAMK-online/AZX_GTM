@@ -192,7 +192,7 @@ const MODULES = [
   },
   {
     number: "06",
-    href: "/monitoring?tab=churn",
+    href: "/churn",
     tag: "AI · CSV UPLOAD",
     title: "Churn Risk Analyzer",
     subtitle: "Upload client CSV. Claude flags who's about to churn.",
@@ -385,7 +385,7 @@ export default function Home() {
                     Run Intelligence Engine →
                   </Link>
                   <Link
-                    href="/monitoring?tab=churn"
+                    href="/churn"
                     className="px-7 py-3.5 rounded-lg border border-white/15 text-white/60 font-mono text-sm
                                hover:border-white/40 hover:text-white transition-colors duration-200"
                   >

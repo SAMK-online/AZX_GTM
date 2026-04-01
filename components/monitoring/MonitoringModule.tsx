@@ -1,35 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { AccountSignalsTab } from "./AccountSignalsTab";
 import { NewsletterTab } from "./NewsletterTab";
-import { ChurnAnalysisTab } from "./ChurnAnalysisTab";
 
-type Tab = "signals" | "newsletter" | "churn";
+type Tab = "signals" | "newsletter";
 
 const TABS: { id: Tab; label: string; sub: string }[] = [
-  { id: "signals", label: "Account Signals", sub: "News monitoring for tracked accounts" },
+  { id: "signals",    label: "Account Signals",        sub: "News monitoring for tracked accounts" },
   { id: "newsletter", label: "Newsletter Intelligence", sub: "Parse any newsletter or article" },
-  { id: "churn", label: "Churn Risk", sub: "Upload client CSV — Claude flags high-risk accounts" },
 ];
 
-const VALID_TABS = new Set<Tab>(["signals", "newsletter", "churn"]);
-
 export function MonitoringModule() {
-  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<Tab>("signals");
-
-  // Sync tab with ?tab= URL param (covers nav clicks without a full page remount)
-  useEffect(() => {
-    const tab = searchParams.get("tab") as Tab | null;
-    if (tab && VALID_TABS.has(tab)) setActiveTab(tab);
-  }, [searchParams]);
 
   return (
     <div className="space-y-6">
-      {/* Tab bar */}
-      <div className="flex gap-1 p-1 rounded-xl border border-azx-border bg-azx-card w-fit flex-wrap">
+      <div className="flex gap-1 p-1 rounded-xl border border-azx-border bg-azx-card w-fit">
         {TABS.map((tab) => (
           <button
             key={tab.id}
@@ -45,15 +32,12 @@ export function MonitoringModule() {
         ))}
       </div>
 
-      {/* Tab subtitle */}
       <p className="font-mono text-xs text-azx-muted">
         {TABS.find((t) => t.id === activeTab)?.sub}
       </p>
 
-      {/* Tab content */}
-      {activeTab === "signals" && <AccountSignalsTab />}
+      {activeTab === "signals"    && <AccountSignalsTab />}
       {activeTab === "newsletter" && <NewsletterTab />}
-      {activeTab === "churn" && <ChurnAnalysisTab />}
     </div>
   );
 }

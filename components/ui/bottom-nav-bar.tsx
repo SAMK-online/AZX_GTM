@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   Home,
   Zap,
@@ -17,15 +17,15 @@ import {
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
-  { label: "Home",          icon: Home,          href: "/"                     },
-  { label: "Intelligence",  icon: Zap,           href: "/intelligence"         },
-  { label: "Architecture",  icon: Network,       href: "/architecture"         },
-  { label: "Readiness",     icon: BarChart2,     href: "/readiness"            },
-  { label: "Outreach",      icon: Send,          href: "/outreach"             },
-  { label: "Signals",       icon: Radio,         href: "/monitoring"           },
-  { label: "Churn",         icon: TrendingDown,  href: "/monitoring?tab=churn" },
-  { label: "Performance",   icon: TrendingUp,    href: "/performance"          },
-  { label: "Meetings",      icon: FileText,      href: "/transcript"           },
+  { label: "Home",          icon: Home,         href: "/"             },
+  { label: "Intelligence",  icon: Zap,          href: "/intelligence" },
+  { label: "Architecture",  icon: Network,      href: "/architecture" },
+  { label: "Readiness",     icon: BarChart2,    href: "/readiness"    },
+  { label: "Outreach",      icon: Send,         href: "/outreach"     },
+  { label: "Signals",       icon: Radio,        href: "/monitoring"   },
+  { label: "Churn",         icon: TrendingDown, href: "/churn"        },
+  { label: "Performance",   icon: TrendingUp,   href: "/performance"  },
+  { label: "Meetings",      icon: FileText,     href: "/transcript"   },
 ];
 
 const LABEL_WIDTH = 68;
@@ -36,22 +36,6 @@ type BottomNavBarProps = {
 
 export function BottomNavBar({ className }: BottomNavBarProps) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  function isActive(href: string): boolean {
-    if (href.includes("?")) {
-      const [path, qs] = href.split("?");
-      if (pathname !== path) return false;
-      const params = new URLSearchParams(qs);
-      const tab = params.get("tab");
-      return tab ? searchParams.get("tab") === tab : true;
-    }
-    // /monitoring (Signals) is active only when NOT on the churn tab
-    if (href === "/monitoring") {
-      return pathname === "/monitoring" && searchParams.get("tab") !== "churn";
-    }
-    return pathname === href;
-  }
 
   return (
     <motion.nav
@@ -71,7 +55,7 @@ export function BottomNavBar({ className }: BottomNavBarProps) {
     >
       {NAV_ITEMS.map((item) => {
         const Icon = item.icon;
-        const active = isActive(item.href);
+        const isActive = pathname === item.href;
 
         return (
           <Link key={item.href} href={item.href} passHref legacyBehavior>
@@ -81,16 +65,16 @@ export function BottomNavBar({ className }: BottomNavBarProps) {
                 "flex items-center px-3 py-2 rounded-full transition-colors duration-200",
                 "h-9 min-w-[40px] cursor-pointer select-none",
                 "focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20",
-                active
+                isActive
                   ? "bg-white/10 text-white"
                   : "text-[#555] hover:bg-white/5 hover:text-white/60",
               )}
               aria-label={item.label}
-              aria-current={active ? "page" : undefined}
+              aria-current={isActive ? "page" : undefined}
             >
               <Icon
                 size={18}
-                strokeWidth={active ? 2.2 : 1.8}
+                strokeWidth={isActive ? 2.2 : 1.8}
                 aria-hidden
                 className="shrink-0 transition-all duration-200"
               />
@@ -98,9 +82,9 @@ export function BottomNavBar({ className }: BottomNavBarProps) {
               <motion.div
                 initial={false}
                 animate={{
-                  width: active ? `${LABEL_WIDTH}px` : "0px",
-                  opacity: active ? 1 : 0,
-                  marginLeft: active ? "6px" : "0px",
+                  width: isActive ? `${LABEL_WIDTH}px` : "0px",
+                  opacity: isActive ? 1 : 0,
+                  marginLeft: isActive ? "6px" : "0px",
                 }}
                 transition={{
                   width: { type: "spring", stiffness: 350, damping: 32 },
@@ -113,7 +97,7 @@ export function BottomNavBar({ className }: BottomNavBarProps) {
                   className={cn(
                     "font-mono text-[10px] tracking-widest uppercase whitespace-nowrap",
                     "select-none overflow-hidden text-ellipsis",
-                    active ? "text-white" : "opacity-0",
+                    isActive ? "text-white" : "opacity-0",
                   )}
                 >
                   {item.label}
@@ -126,3 +110,5 @@ export function BottomNavBar({ className }: BottomNavBarProps) {
     </motion.nav>
   );
 }
+
+export default BottomNavBar;
