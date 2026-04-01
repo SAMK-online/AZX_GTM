@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { AccountSignalsTab } from "./AccountSignalsTab";
 import { NewsletterTab } from "./NewsletterTab";
 import { ChurnAnalysisTab } from "./ChurnAnalysisTab";
@@ -13,8 +14,17 @@ const TABS: { id: Tab; label: string; sub: string }[] = [
   { id: "churn", label: "Churn Risk", sub: "Upload client CSV — Claude flags high-risk accounts" },
 ];
 
+const VALID_TABS = new Set<Tab>(["signals", "newsletter", "churn"]);
+
 export function MonitoringModule() {
+  const searchParams = useSearchParams();
   const [activeTab, setActiveTab] = useState<Tab>("signals");
+
+  // Sync tab with ?tab= URL param (covers nav clicks without a full page remount)
+  useEffect(() => {
+    const tab = searchParams.get("tab") as Tab | null;
+    if (tab && VALID_TABS.has(tab)) setActiveTab(tab);
+  }, [searchParams]);
 
   return (
     <div className="space-y-6">
