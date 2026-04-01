@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MonitoringModule } from "@/components/monitoring/MonitoringModule";
@@ -42,7 +43,9 @@ export default function MonitoringPage() {
         </PageHero>
 
         <section className="px-6 py-12 max-w-6xl mx-auto">
-          <MonitoringModule />
+          <Suspense fallback={null}>
+            <MonitoringModule />
+          </Suspense>
         </section>
 
         <div className="border-t border-azx-border px-6 py-8 max-w-6xl mx-auto flex items-center justify-between">

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import "./globals.css";
 import { GlobalBackground } from "@/components/ui/GlobalBackground";
 import { BottomNavBar } from "@/components/ui/bottom-nav-bar";
@@ -35,7 +36,9 @@ export default function RootLayout({
         {/* Page content sits above the background */}
         <div className="relative z-10 pt-20">{children}</div>
         {/* Bottom nav — rendered outside page content so it floats above everything */}
-        <BottomNavBar />
+        <Suspense fallback={null}>
+          <BottomNavBar />
+        </Suspense>
       </body>
     </html>
   );
