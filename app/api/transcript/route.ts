@@ -50,28 +50,46 @@ export async function POST(req: Request) {
   const body = await req.json().catch(() => null);
   const parsed = BodySchema.safeParse(body);
   if (!parsed.success) {
-    return Response.json({ error: "Invalid input — need at least 50 characters of transcript" }, { status: 400 });
+    return new Response(
+      JSON.stringify({ error: "Invalid input — need at least 50 characters of transcript" }),
+      { status: 400, headers: { "Content-Type": "application/json" } }
+    );
   }
 
   const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-  try {
-    const message = await client.messages.create({
-      model: "claude-sonnet-4-6",
-      max_tokens: 3000,
-      system: SYSTEM,
-      messages: [{ role: "user", content: buildPrompt(parsed.data.text) }],
-    });
+  const { readable, writable } = new TransformStream<Uint8Array, Uint8Array>();
+  const writer = writable.getWriter();
+  const encoder = new TextEncoder();
 
-    const raw = message.content[0].type === "text" ? message.content[0].text : "";
-    const jsonMatch = raw.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) {
-      return Response.json({ error: "Failed to extract structured data from transcript" }, { status: 500 });
+  (async () => {
+    try {
+      const stream = client.messages.stream({
+        model: "claude-sonnet-4-6",
+        max_tokens: 3000,
+        system: SYSTEM,
+        messages: [{ role: "user", content: buildPrompt(parsed.data.text) }],
+      });
+
+      for await (const event of stream) {
+        if (
+          event.type === "content_block_delta" &&
+          event.delta.type === "text_delta"
+        ) {
+          await writer.write(encoder.encode(event.delta.text));
+        }
+      }
+    } catch {
+      await writer.write(encoder.encode("\n__STREAM_ERROR__"));
+    } finally {
+      await writer.close();
     }
+  })();
 
-    const result = JSON.parse(jsonMatch[0]);
-    return Response.json(result);
-  } catch (err) {
-    return Response.json({ error: String(err) }, { status: 500 });
-  }
+  return new Response(readable, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "no-cache",
+    },
+  });
 }

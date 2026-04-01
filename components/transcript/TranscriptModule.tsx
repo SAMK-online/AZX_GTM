@@ -74,9 +74,29 @@ export function TranscriptModule() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: transcript }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Processing failed");
-      setResult(data);
+
+      if (!res.ok || !res.body) {
+        const data = await res.json().catch(() => ({})) as { error?: string };
+        throw new Error(data.error ?? "Processing failed");
+      }
+
+      // Stream the response and accumulate — avoids 504 on long transcripts
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let accumulated = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        accumulated += decoder.decode(value, { stream: true });
+        if (accumulated.includes("__STREAM_ERROR__")) {
+          throw new Error("Extraction failed — please try again");
+        }
+      }
+
+      const jsonMatch = accumulated.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) throw new Error("Failed to parse extraction result");
+      setResult(JSON.parse(jsonMatch[0]) as TranscriptResult);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Failed to process transcript");
     } finally {
