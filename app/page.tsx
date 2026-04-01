@@ -9,13 +9,11 @@ const MODULES = [
   {
     number: "01",
     href: "/intelligence",
-    accent: "#ffffff",
-    accentBg: "rgba(255,255,255,0.04)",
     tag: "LIVE AI · STREAMING",
     title: "Prospect Intelligence Engine",
     subtitle: "Type a company. Get a full GTM brief in 15 seconds.",
     description:
-      "Live web search + Claude synthesis. Signals, stakeholders, pain points, solution fit, outreach angle, and timing — all streamed in real time.",
+      "Live web search + Claude synthesis. Signals, stakeholders, pain points, solution fit, outreach angle, and timing — all streamed in real time across 8 sections.",
     cta: "Run Intelligence Engine",
     stat: { value: "~15s", label: "to brief" },
     preview: (
@@ -26,12 +24,12 @@ const MODULES = [
         </div>
         <div className="grid grid-cols-2 gap-2 flex-1">
           {[
-            { s: "SIGNALS", active: true, lines: [75, 55, 90, 60] },
+            { s: "SIGNALS",      active: true,  lines: [75, 55, 90, 60] },
             { s: "STAKEHOLDERS", active: false, lines: [70, 80, 50] },
-            { s: "PAIN POINTS", active: false, lines: [85, 60, 70] },
+            { s: "PAIN POINTS",  active: false, lines: [85, 60, 70] },
             { s: "SOLUTION FIT", active: false, lines: [65, 80] },
-            { s: "OUTREACH", active: false, lines: [90, 55, 75] },
-            { s: "TIMING", active: false, lines: [60, 70] },
+            { s: "OUTREACH",     active: false, lines: [90, 55, 75] },
+            { s: "TIMING",       active: false, lines: [60, 70] },
           ].map(({ s, active, lines }) => (
             <div key={s} className={`p-2.5 rounded-lg border ${active ? "border-white/20 bg-white/5" : "border-[#222] bg-[#0d0d0d]"}`}>
               <div className={`tracking-widest mb-2 ${active ? "text-white" : "text-[#333]"}`}>{s}</div>
@@ -53,23 +51,21 @@ const MODULES = [
   {
     number: "02",
     href: "/architecture",
-    accent: "#cccccc",
-    accentBg: "rgba(255,255,255,0.04)",
     tag: "INTERACTIVE · 16 NODES",
     title: "GTM Brain Architecture",
     subtitle: "Every layer of the AI GTM stack. Fully interactive.",
     description:
-      "16 nodes. 7 layers. Click any component to see what it does, what tools power it, and where AI changes the economics.",
+      "16 nodes. 7 layers. Click any component to see what it does, what tools power it, and where AI changes the economics. Animated data flow on demand.",
     cta: "Explore Architecture",
     stat: { value: "16", label: "nodes" },
     preview: (
       <div className="h-full p-5 font-mono text-[9px] flex flex-col gap-3">
         {[
-          { label: "DATA INGESTION", opacity: "text-white/80", nodes: ["Signal Crawler", "CRM Sync", "Intent Feed"] },
-          { label: "AI PROCESSING", opacity: "text-white/65", nodes: ["Account Scorer", "Persona Intel", "Competitive AI"] },
-          { label: "CONTENT GEN", opacity: "text-white/50", nodes: ["Outreach AI", "Content AI"] },
-          { label: "ORCHESTRATION", opacity: "text-white/40", nodes: ["GTM Orchestrator", "Workflow Engine"] },
-          { label: "EXECUTION", opacity: "text-white/30", nodes: ["Sales Engage", "Paid Amplify", "Partner Channel"] },
+          { label: "DATA INGESTION",  opacity: "text-white/80", nodes: ["Signal Crawler", "CRM Sync", "Intent Feed"] },
+          { label: "AI PROCESSING",   opacity: "text-white/65", nodes: ["Account Scorer", "Persona Intel", "Competitive AI"] },
+          { label: "CONTENT GEN",     opacity: "text-white/50", nodes: ["Outreach AI", "Content AI"] },
+          { label: "ORCHESTRATION",   opacity: "text-white/35", nodes: ["GTM Orchestrator", "Workflow Engine"] },
+          { label: "EXECUTION",       opacity: "text-white/25", nodes: ["Sales Engage", "Paid Amplify", "Partner Channel"] },
         ].map(({ label, opacity, nodes }) => (
           <div key={label}>
             <div className={`tracking-widest mb-1.5 ${opacity}`}>{label}</div>
@@ -88,8 +84,6 @@ const MODULES = [
   {
     number: "03",
     href: "/readiness",
-    accent: "#aaaaaa",
-    accentBg: "rgba(255,255,255,0.04)",
     tag: "INTERACTIVE · 2 MIN",
     title: "AI GTM Readiness Score",
     subtitle: "Score your prospect's AI maturity instantly.",
@@ -120,15 +114,188 @@ const MODULES = [
     ),
   },
   {
+    number: "04",
+    href: "/outreach",
+    tag: "AI · EMAIL + LINKEDIN",
+    title: "Outreach Builder",
+    subtitle: "Turn any brief into a cold email in one click.",
+    description:
+      "Contacts auto-extracted from Intelligence Engine sessions. Select email or LinkedIn — Claude writes a hyper-personalized message anchored in live signals, pain points, and timing cues.",
+    cta: "Open Outreach Builder",
+    stat: { value: "2", label: "formats" },
+    preview: (
+      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+            <span className="text-white/60 tracking-widest">OUTREACH · SARAH CHEN</span>
+          </div>
+          <div className="flex gap-1">
+            <span className="px-2 py-0.5 rounded bg-white text-black text-[9px] font-bold">EMAIL</span>
+            <span className="px-2 py-0.5 rounded border border-[#222] text-[#444] text-[9px]">LINKEDIN</span>
+          </div>
+        </div>
+        <div className="flex-1 p-3 rounded-lg border border-white/10 bg-[#0d0d0d] space-y-2">
+          <div className="text-white/40 text-[9px]">SUBJECT: Schneider's $2.3B Data Center Push →</div>
+          <div className="space-y-1.5 text-[9px]">
+            <div className="text-slate-400">Hi Sarah,</div>
+            <div className="text-slate-400 leading-relaxed">
+              Saw Schneider's announcement on the $2.3B data center deals — liquid cooling at that scale creates exactly the AI decision-support gap our platform addresses...
+            </div>
+            <div className="flex items-center gap-1">
+              <span className="w-1 h-1 rounded-full bg-white/50 animate-pulse" />
+              <span className="text-white/30">generating...</span>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 text-white/30">
+          <span>✓</span>
+          <span className="tracking-widest">GROUNDED IN LIVE SIGNALS</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    number: "05",
+    href: "/monitoring",
+    tag: "LIVE · TAVILY + CLAUDE",
+    title: "Signal Monitor",
+    subtitle: "Live news monitoring for every account you track.",
+    description:
+      "Auto-synced from your Intelligence Engine sessions. Tavily fetches fresh signals; Claude extracts urgency, trend, and intent from every headline.",
+    cta: "Open Signal Monitor",
+    stat: { value: "Live", label: "signals" },
+    preview: (
+      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
+        <div className="flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+          <span className="text-white/60 tracking-widest">MONITORING · 4 ACCOUNTS</span>
+        </div>
+        <div className="space-y-2 flex-1">
+          {[
+            { company: "Schneider Electric", signal: "[HIGH] $2.3B data center expansion announced", fresh: true },
+            { company: "GE Vernova",          signal: "[HIGH] Grid modernization RFP issued",           fresh: true },
+            { company: "Siemens Energy",      signal: "[MED] New CDO appointment",                      fresh: false },
+          ].map(({ company, signal, fresh }) => (
+            <div key={company} className={`p-2.5 rounded-lg border ${fresh ? "border-white/15 bg-white/[0.03]" : "border-[#222] bg-[#0d0d0d]"}`}>
+              <div className={`tracking-widest mb-1 text-[9px] ${fresh ? "text-white/50" : "text-[#333]"}`}>{company}</div>
+              <div className={`text-[10px] ${fresh ? "text-slate-300" : "text-[#444]"}`}>{signal}</div>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-2 text-white/40">
+          <span>≡</span>
+          <span className="tracking-widest">NEWSLETTER INTEL + CHURN RISK TABS</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    number: "06",
+    href: "/monitoring?tab=churn",
+    tag: "AI · CSV UPLOAD",
+    title: "Churn Risk Analyzer",
+    subtitle: "Upload client CSV. Claude flags who's about to churn.",
+    description:
+      "Upload any CSV with adoption and conversion data. Set risk thresholds, run analysis — Claude scores every client 0–100, explains why they're at risk, and groups them into a prioritized action dashboard.",
+    cta: "Analyze Churn Risk",
+    stat: { value: "100", label: "rows" },
+    preview: (
+      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
+        <div className="flex items-center justify-between">
+          <span className="text-white/60 tracking-widest">CHURN RISK · 47 CLIENTS</span>
+          <div className="flex gap-2">
+            <span className="text-red-400 font-bold">12 HIGH</span>
+            <span className="text-amber-400 font-bold">8 LOW</span>
+            <span className="text-emerald-400 font-bold">27 WELL</span>
+          </div>
+        </div>
+        <div className="flex-1 space-y-1.5">
+          {[
+            { name: "ACME Corp",        adoption: "18%", conversion: "12%", risk: "HIGH" as const, score: 94 },
+            { name: "DataSync Ltd",     adoption: "23%", conversion: "31%", risk: "HIGH" as const, score: 78 },
+            { name: "BrightPath Inc",   adoption: "38%", conversion: "62%", risk: "LOW" as const,  score: 44 },
+            { name: "TechCo Solutions", adoption: "72%", conversion: "68%", risk: "WELL" as const, score: 8 },
+          ].map(({ name, adoption, conversion, risk, score }) => (
+            <div
+              key={name}
+              className={`flex items-center gap-2 px-2.5 py-1.5 rounded border text-[9px] ${
+                risk === "HIGH" ? "border-red-500/20 bg-red-500/5" :
+                risk === "LOW"  ? "border-amber-500/20 bg-amber-500/5" :
+                                  "border-[#222] bg-[#0d0d0d]"
+              }`}
+            >
+              <span className="text-white flex-1 truncate">{name}</span>
+              <span className="text-[#555]">{adoption}</span>
+              <span className="text-[#555]">{conversion}</span>
+              <span className={`px-1.5 py-0.5 rounded text-[8px] font-bold ${
+                risk === "HIGH" ? "text-red-400 bg-red-500/10" :
+                risk === "LOW"  ? "text-amber-400 bg-amber-500/10" :
+                                  "text-emerald-400 bg-emerald-500/10"
+              }`}>{risk}</span>
+              <span className="text-[#444] w-5 text-right">{score}</span>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-2 text-white/30">
+          <span>↓</span>
+          <span className="tracking-widest">DOWNLOAD REPORT · RESULTS PERSIST</span>
+        </div>
+      </div>
+    ),
+  },
+  {
     number: "07",
+    href: "/performance",
+    tag: "LIVE · YAHOO FINANCE",
+    title: "Client Performance",
+    subtitle: "Public market data for tracked client sectors.",
+    description:
+      "Real-time stock charts for CBRE and sector benchmarks across Energy, Logistics, and Utilities. Interactive 30-day price history with 52-week range tracking.",
+    cta: "View Performance",
+    stat: { value: "4", label: "tickers" },
+    preview: (
+      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
+        <div className="flex items-center gap-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+          <span className="text-white/60 tracking-widest">MARKET · 4 SECTORS</span>
+        </div>
+        <div className="space-y-2 flex-1">
+          {[
+            { symbol: "CBRE", change: "+1.39%", bar: 72, client: true  },
+            { symbol: "NEE",  change: "-0.62%", bar: 45, client: false },
+            { symbol: "GXO",  change: "+1.60%", bar: 58, client: false },
+            { symbol: "AWK",  change: "+0.73%", bar: 65, client: false },
+          ].map(({ symbol, change, bar, client }) => (
+            <div key={symbol} className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5 w-16 shrink-0">
+                <span className="text-white font-bold">{symbol}</span>
+                {client && <span className="text-[8px] bg-white text-black px-1 rounded font-bold">C</span>}
+              </div>
+              <div className="flex-1 h-1 rounded-full bg-[#1a1a1a] overflow-hidden">
+                <div className="h-full bg-white/50 rounded-full" style={{ width: `${bar}%` }} />
+              </div>
+              <span className={`text-[9px] w-12 text-right ${change.startsWith("+") ? "text-white" : "text-white/30"}`}>
+                {change}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-2 text-white/30">
+          <span>↑</span>
+          <span className="tracking-widest">INTERACTIVE 30D CHART</span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    number: "08",
     href: "/transcript",
-    accent: "#ffffff",
-    accentBg: "rgba(255,255,255,0.04)",
     tag: "AI · CLAUDE EXTRACTION",
     title: "Meeting Intelligence",
     subtitle: "Transcript in. Weekly plans out.",
     description:
-      "Paste any meeting transcript — Claude extracts a prioritized weekly action plan for every participant with due dates, context, and a one-click send button.",
+      "Paste any meeting transcript — Claude extracts a prioritized action plan for every participant with due dates, context, and a one-click send button.",
     cta: "Open Meeting Intel",
     stat: { value: "5", label: "participants" },
     preview: (
@@ -139,10 +306,10 @@ const MODULES = [
         </div>
         <div className="grid grid-cols-2 gap-2 flex-1">
           {[
-            { name: "SC", role: "VP Sales",   tasks: ["Draft LevelTen proposal", "Review Jordan's brief"] },
+            { name: "SC", role: "VP Sales",     tasks: ["Draft LevelTen proposal", "Review Jordan's brief"] },
             { name: "MR", role: "Partnerships", tasks: ["CTO discovery call", "Vendor network scan"] },
-            { name: "PP", role: "Marketing",  tasks: ["4-week content calendar", "Update one-pager"] },
-            { name: "JK", role: "BDR",        tasks: ["Finish CBRE touches", "Build PSE sequence"] },
+            { name: "PP", role: "Marketing",    tasks: ["4-week content calendar", "Update one-pager"] },
+            { name: "JK", role: "BDR",          tasks: ["Finish CBRE touches", "Build PSE sequence"] },
           ].map(({ name, role, tasks }) => (
             <div key={name} className="p-2 rounded border border-[#222] bg-[#0d0d0d]">
               <div className="flex items-center gap-1.5 mb-1.5">
@@ -167,87 +334,6 @@ const MODULES = [
       </div>
     ),
   },
-  {
-    number: "06",
-    href: "/performance",
-    accent: "#ffffff",
-    accentBg: "rgba(255,255,255,0.04)",
-    tag: "LIVE · YAHOO FINANCE",
-    title: "Client Performance",
-    subtitle: "Public market data for tracked client sectors.",
-    description:
-      "Real-time stock charts for CBRE and sector benchmarks across Energy, Logistics, and Utilities. Interactive 30-day price history with 52-week range tracking.",
-    cta: "View Performance",
-    stat: { value: "4", label: "tickers" },
-    preview: (
-      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
-        <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-          <span className="text-white/60 tracking-widest">MARKET · 4 SECTORS</span>
-        </div>
-        <div className="space-y-2 flex-1">
-          {[
-            { symbol: "CBRE", change: "+1.39%", bar: 72, client: true },
-            { symbol: "NEE",  change: "-0.62%", bar: 45, client: false },
-            { symbol: "GXO",  change: "+1.60%", bar: 58, client: false },
-            { symbol: "AWK",  change: "+0.73%", bar: 65, client: false },
-          ].map(({ symbol, change, bar, client }) => (
-            <div key={symbol} className="flex items-center gap-3">
-              <div className="flex items-center gap-1.5 w-16 shrink-0">
-                <span className="text-white font-bold">{symbol}</span>
-                {client && <span className="text-[8px] bg-white text-black px-1 rounded font-bold">C</span>}
-              </div>
-              <div className="flex-1 h-1 rounded-full bg-[#1a1a1a] overflow-hidden">
-                <div className="h-full bg-white/50 rounded-full" style={{ width: `${bar}%` }} />
-              </div>
-              <span className={`text-[9px] w-12 text-right ${change.startsWith("+") ? "text-white" : "text-white/30"}`}>{change}</span>
-            </div>
-          ))}
-        </div>
-        <div className="flex items-center gap-2 text-white/30">
-          <span>↑</span>
-          <span className="tracking-widest">INTERACTIVE 30D CHART</span>
-        </div>
-      </div>
-    ),
-  },
-  {
-    number: "05",
-    href: "/monitoring",
-    accent: "#ffffff",
-    accentBg: "rgba(255,255,255,0.04)",
-    tag: "LIVE · TAVILY + CLAUDE",
-    title: "Signal Monitor",
-    subtitle: "Live news monitoring for every account you track.",
-    description:
-      "Auto-synced from your Intelligence Engine sessions. Paste any newsletter or article — Claude extracts companies signaling buying intent, market trends, and recommended actions.",
-    cta: "Open Signal Monitor",
-    stat: { value: "Live", label: "signals" },
-    preview: (
-      <div className="h-full p-5 font-mono text-[10px] flex flex-col gap-3">
-        <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-          <span className="text-white/60 tracking-widest">MONITORING · 4 ACCOUNTS</span>
-        </div>
-        <div className="space-y-2 flex-1">
-          {[
-            { company: "Schneider Electric", signal: "[HIGH] $2.3B data center expansion", fresh: true },
-            { company: "GE Vernova", signal: "[HIGH] Grid modernization RFP issued", fresh: true },
-            { company: "Siemens Energy", signal: "[MED] New CDO appointment", fresh: false },
-          ].map(({ company, signal, fresh }) => (
-            <div key={company} className={`p-2.5 rounded-lg border ${fresh ? "border-white/15 bg-white/[0.03]" : "border-[#222] bg-[#0d0d0d]"}`}>
-              <div className={`tracking-widest mb-1 text-[9px] ${fresh ? "text-white/50" : "text-[#333]"}`}>{company}</div>
-              <div className={`text-[10px] ${fresh ? "text-slate-300" : "text-[#444]"}`}>{signal}</div>
-            </div>
-          ))}
-        </div>
-        <div className="flex items-center gap-2 text-white/40">
-          <span>≡</span>
-          <span className="tracking-widest">NEWSLETTER INTEL TAB AVAILABLE</span>
-        </div>
-      </div>
-    ),
-  },
 ];
 
 export default function Home() {
@@ -255,19 +341,18 @@ export default function Home() {
     <>
       <main className="overflow-x-hidden">
 
-        {/* ── HERO + SCROLL ANIMATION ──────────────────────────────── */}
+        {/* ── HERO + SCROLL ANIMATION ─────────────────────────────── */}
         <section className="relative">
-
           <ContainerScroll
             titleComponent={
               <div className="mb-8 relative z-10">
-                {/* Headline */}
                 <motion.h1
                   initial={{ y: 30 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.2, duration: 0.7 }}
                   className="font-mono font-bold leading-[0.88] mb-6"
-                  style={{ fontSize: "clamp(3rem, 9vw, 7rem)" }}>
+                  style={{ fontSize: "clamp(3rem, 9vw, 7rem)" }}
+                >
                   <span className="text-white">The GTM Stack</span>
                   <br />
                   <span className="text-white/70">of the Future.</span>
@@ -279,30 +364,38 @@ export default function Home() {
                   initial={{ y: 20 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
-                  className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed mb-3">
-                  Three working AI systems. Prospect intelligence, architecture visualization,
-                  and readiness scoring — built to show exactly what an AI-native GTM team looks like.
+                  className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed mb-3"
+                >
+                  Eight working AI modules — prospect intelligence, outreach generation, churn risk
+                  scoring, live signal monitoring, and more. Built to show what an AI-native GTM
+                  team actually looks like.
                 </motion.p>
 
-                {/* CTAs */}
                 <motion.div
                   initial={{ y: 10 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.65, duration: 0.5 }}
-                  className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <Link href="/intelligence"
+                  className="flex flex-col sm:flex-row gap-3 justify-center"
+                >
+                  <Link
+                    href="/intelligence"
                     className="px-7 py-3.5 rounded-lg bg-white text-black font-mono text-sm font-bold
-                               hover:bg-white/90 transition-colors duration-200">
+                               hover:bg-white/90 transition-colors duration-200"
+                  >
                     Run Intelligence Engine →
                   </Link>
-                  <Link href="/architecture"
+                  <Link
+                    href="/monitoring?tab=churn"
                     className="px-7 py-3.5 rounded-lg border border-white/15 text-white/60 font-mono text-sm
-                               hover:border-white/40 hover:text-white transition-colors duration-200">
-                    Explore Architecture
+                               hover:border-white/40 hover:text-white transition-colors duration-200"
+                  >
+                    Churn Risk Analyzer
                   </Link>
-                  <Link href="/readiness"
+                  <Link
+                    href="/readiness"
                     className="px-7 py-3.5 rounded-lg border border-white/15 text-white/60 font-mono text-sm
-                               hover:border-white/40 hover:text-white transition-colors duration-200">
+                               hover:border-white/40 hover:text-white transition-colors duration-200"
+                  >
                     Take Assessment
                   </Link>
                 </motion.div>
@@ -311,15 +404,15 @@ export default function Home() {
                   initial={{ opacity: 0.3 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.8 }}
-                  className="font-mono text-[10px] text-azx-muted mt-6 tracking-widest">
-                  ↓ SCROLL TO EXPLORE
+                  className="font-mono text-[10px] text-azx-muted mt-6 tracking-widest"
+                >
+                  ↓ SCROLL TO EXPLORE ALL 8 MODULES
                 </motion.p>
               </div>
             }
           >
-            {/* 3D card content — preview of the Intelligence Engine */}
+            {/* 3D card — Intelligence Engine preview */}
             <div className="w-full h-full bg-azx-dark flex flex-col">
-              {/* Fake browser chrome */}
               <div className="flex items-center gap-2 px-4 py-3 border-b border-azx-border bg-azx-card shrink-0">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-white/20" />
@@ -331,7 +424,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* App preview */}
               <div className="flex-1 overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-0">
                 {/* Left: input */}
                 <div className="p-6 border-r border-azx-border flex flex-col gap-4">
@@ -372,15 +464,15 @@ export default function Home() {
                   <div className="space-y-2 flex-1 overflow-hidden">
                     <p className="text-slate-300 text-[11px] leading-relaxed">
                       <span className="text-white font-medium">$2.3B Data Center Deal Surge (Nov 2025):</span>{" "}
-                      Schneider announced nearly $2.3B in new deals with U.S. data center operators, with liquid cooling infrastructure at the center, creating urgent grid stability challenges...
+                      Schneider announced nearly $2.3B in new deals with U.S. data center operators, with liquid cooling infrastructure at the center...
                     </p>
                     <p className="text-slate-400 text-[11px] leading-relaxed">
                       <span className="text-white font-medium">EcoStruxure Scaling Pressure:</span>{" "}
-                      Customers demand more than dashboards — they want predictive, autonomous decision-support. Generic ML layers on OT data underperform in production...
+                      Customers demand more than dashboards — they want predictive, autonomous decision-support...
                     </p>
                     <p className="text-slate-400 text-[11px] leading-relaxed opacity-60">
                       <span className="text-white font-medium">Climate Week NYC 2025:</span>{" "}
-                      Schneider placed &quot;energy resilience&quot; at the center of their narrative, signaling ESG and grid reliability are a unified board-level priority...
+                      Schneider placed &quot;energy resilience&quot; at the center of their board-level narrative...
                     </p>
                   </div>
                   <div className="font-mono text-[10px] text-azx-muted flex items-center gap-1.5">
@@ -393,7 +485,7 @@ export default function Home() {
           </ContainerScroll>
         </section>
 
-        {/* ── MODULE CARDS ─────────────────────────────────────────── */}
+        {/* ── MODULE CARDS ──────────────────────────────────────────── */}
         <section className="px-6 py-24 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <motion.div
@@ -406,6 +498,9 @@ export default function Home() {
                 Not a portfolio.{" "}
                 <span className="text-white/60">A working infrastructure.</span>
               </h2>
+              <p className="text-slate-500 font-mono text-xs mt-4 tracking-widest">
+                8 MODULES · EDGE STREAMING · ZERO BACKEND
+              </p>
             </motion.div>
           </div>
 
@@ -416,26 +511,26 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
               >
                 <Link href={mod.href} className="group block h-full">
-                  <div className="h-full rounded-xl border border-azx-border bg-azx-card p-6
-                                  transition-all duration-300 hover:border-opacity-60
-                                  group-hover:-translate-y-1"
+                  <div
+                    className="h-full rounded-xl border border-azx-border bg-azx-card p-6
+                                group-hover:-translate-y-1"
                     style={{ transition: "transform 0.3s, box-shadow 0.3s, border-color 0.3s" }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLDivElement).style.boxShadow = `0 20px 60px ${mod.accent}20`;
-                      (e.currentTarget as HTMLDivElement).style.borderColor = `${mod.accent}40`;
+                      (e.currentTarget as HTMLDivElement).style.boxShadow = "0 20px 60px rgba(255,255,255,0.06)";
+                      (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255,255,255,0.15)";
                     }}
                     onMouseLeave={(e) => {
                       (e.currentTarget as HTMLDivElement).style.boxShadow = "";
                       (e.currentTarget as HTMLDivElement).style.borderColor = "";
-                    }}>
-
+                    }}
+                  >
                     {/* Tag + number */}
                     <div className="flex items-center justify-between mb-4">
-                      <span className="font-mono text-[10px] tracking-widest px-2 py-1 rounded"
-                        style={{ color: mod.accent, backgroundColor: mod.accentBg }}>
+                      <span className="font-mono text-[10px] tracking-widest px-2 py-1 rounded
+                                       text-white/60 bg-white/[0.04]">
                         {mod.tag}
                       </span>
                       <span className="font-mono text-xs text-azx-border">{mod.number}</span>
@@ -447,22 +542,19 @@ export default function Home() {
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-lg font-bold text-white mb-1.5 transition-colors duration-200 group-hover:text-white/80"
-                      style={{ color: undefined }}>
-                      {mod.title}
-                    </h3>
+                    <h3 className="text-lg font-bold text-white mb-1.5">{mod.title}</h3>
                     <p className="font-mono text-xs text-azx-muted mb-3">{mod.subtitle}</p>
                     <p className="text-slate-400 text-sm leading-relaxed mb-5">{mod.description}</p>
 
                     {/* CTA row */}
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1.5 font-mono text-sm font-bold transition-colors duration-200"
-                        style={{ color: mod.accent }}>
+                      <div className="flex items-center gap-1.5 font-mono text-sm font-bold text-white
+                                      group-hover:text-white/70 transition-colors">
                         {mod.cta}
                         <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
                       </div>
                       <div className="text-right">
-                        <div className="font-mono text-lg font-bold" style={{ color: mod.accent }}>{mod.stat.value}</div>
+                        <div className="font-mono text-lg font-bold text-white">{mod.stat.value}</div>
                         <div className="font-mono text-[9px] text-azx-muted uppercase tracking-widest">{mod.stat.label}</div>
                       </div>
                     </div>
@@ -473,16 +565,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── WHY THIS EXISTS ───────────────────────────────────────── */}
+        {/* ── WHY THIS EXISTS ────────────────────────────────────────── */}
         <section className="px-6 pb-24 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-xl border border-azx-border bg-azx-card p-8 md:p-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-5 pointer-events-none"
-              style={{ background: "radial-gradient(circle, #ffffff, transparent)", transform: "translate(30%, -30%)" }} />
+            className="rounded-xl border border-azx-border bg-azx-card p-8 md:p-12 relative overflow-hidden"
+          >
+            <div
+              className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-5 pointer-events-none"
+              style={{ background: "radial-gradient(circle, #ffffff, transparent)", transform: "translate(30%, -30%)" }}
+            />
 
             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
               <div className="max-w-2xl">
@@ -491,23 +586,31 @@ export default function Home() {
                   I built the demo instead of writing about it.
                 </h3>
                 <p className="text-slate-400 leading-relaxed mb-4">
-                  Every system here is a working building block for an AI-native GTM stack:
-                  a Tavily → Claude signal pipeline for prospect research, an AI orchestration
-                  layer for the full GTM stack, and interactive content tools for demand gen.
+                  Every module is a working building block for an AI-native GTM stack — a
+                  Tavily → Claude signal pipeline for prospect research, personalized outreach
+                  generation anchored in live signals, a churn risk analyzer that turns a CSV
+                  into a prioritized action plan, and live news monitoring for every account
+                  you care about.
                 </p>
                 <div className="font-mono text-xs text-azx-muted">
                   Next.js 14 · Claude claude-sonnet-4-6 (Edge streaming) · Tavily · Vercel · Zero backend
                 </div>
               </div>
               <div className="shrink-0 flex flex-col gap-3">
-                <Link href="/intelligence"
+                <Link
+                  href="/intelligence"
                   className="px-6 py-3 rounded-lg bg-white text-black font-mono text-sm font-bold
-                             hover:bg-white/90 transition-colors text-center whitespace-nowrap">
+                             hover:bg-white/90 transition-colors text-center whitespace-nowrap"
+                >
                   Start with Intelligence →
                 </Link>
-                <a href="https://github.com/SAMK-online" target="_blank" rel="noopener noreferrer"
+                <a
+                  href="https://github.com/SAMK-online"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="px-6 py-3 rounded-lg border border-azx-border text-azx-muted font-mono text-sm
-                             hover:text-white transition-colors text-center">
+                             hover:text-white transition-colors text-center"
+                >
                   View Source →
                 </a>
               </div>

@@ -43,10 +43,8 @@ export function BottomNavBar({ className }: BottomNavBarProps) {
       const [path, qs] = href.split("?");
       if (pathname !== path) return false;
       const params = new URLSearchParams(qs);
-      for (const [k, v] of params.entries()) {
-        if (searchParams.get(k) !== v) return false;
-      }
-      return true;
+      const tab = params.get("tab");
+      return tab ? searchParams.get("tab") === tab : true;
     }
     // /monitoring (Signals) is active only when NOT on the churn tab
     if (href === "/monitoring") {
